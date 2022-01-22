@@ -1,11 +1,11 @@
-# 配置文件说明
+# Mô tả tệp cấu hình
 
-## 配置文件格式
+## Định dạng tệp cấu hình
 
-1. 主配置文件采用`yaml`格式，命名为`xxx.yml`。
-2. 默认XrayR会使用软件运行目录下的`config.yml`作为配置文件。
+1. Tệp cấu hình chính có định dạng `yaml` và có tên là` xxx.yml`.
+2. Theo mặc định, XrayR sẽ sử dụng `config.yml` trong thư mục chạy phần mềm làm tệp cấu hình.
 
-配置文件基本格式，Nodes下可以同时添加多个面板，多个节点配置信息，只需添加相同格式的Nodes item即可。
+Định dạng cơ bản của tệp cấu hình, nhiều bảng và nhiều thông tin cấu hình nút có thể được thêm vào cùng một lúc trong Nodes, chỉ cần thêm các mục Nodes ở cùng một định dạng.
 
 ```yaml
 Log:
@@ -89,11 +89,10 @@ Nodes:
           ALICLOUD_SECRET_KEY: bbb
 ```
 
-## 配置文件设置说明
+## Mô tả cài đặt tệp cấu hình
+### Cấu hình cơ bản
 
-### 基础配置
-
-基础配置是对所有节点生效的配置。
+Cấu hình cơ bản là cấu hình có hiệu lực trên tất cả các nút。
 
 ```yaml
 Log:
@@ -111,9 +110,9 @@ ConnetionConfig:
   BufferSize: 64 # The internal cache size of each connection, kB
 ```
 
-#### 日志配置
+#### cấu hình nhật ký
 
-日志配置用于控制XrayR-core的日志级别
+Cấu hình nhật ký được sử dụng để kiểm soát cấp độ nhật ký của XrayR-core
 
 ```yaml
 Log:
@@ -122,51 +121,51 @@ Log:
   ErrorPath: # /etc/XrayR/error.log
 ```
 
-| 参数         | 选项                                    | 说明                         |
-| ------------ | --------------------------------------- | ---------------------------- |
-| `Level`      | `none`,`error`,`warning`,`info`,`debug` | 日志显示级别，`none`为不显示 |
-| `AccessPath` | 无                                      | Access日志的保存路径         |
-| `ErrorPath`  | 无                                      | Error日志的保存路径          |
+| tham số      | Tùy chọn                                      | hướng dẫn                                         |
+| ------------ | ----------------------------------------------| ----------------------------------------------    |
+| `Level`      | `none`,`error`,`warning`,`info`,`debug`       | Mức hiển thị nhật ký, `không` không được hiển thị |
+| `AccessPath` | không                                         | Đường dẫn để lưu nhật ký Access                   |
+| `ErrorPath`  | không                                         | Đường dẫn để lưu Nhật ký lỗi                      |
 
-#### 自定义DNS配置
+#### Cấu hình DNS tùy chỉnh
 
-指定自定义DNS配置文件的路径
+Chỉ định đường dẫn đến tệp cấu hình DNS tùy chỉnh
 
 ```yaml
 DnsConfigPath: # /etc/XrayR/dns.json  Path to dns config
 ```
 
-| 参数            | 选项 | 说明                    |
-| --------------- | ---- | ----------------------- |
-| `DnsConfigPath` | 无   | 自定义DNS配置文件的路径 |
+| tham số         | Tùy chọn| hướng dẫn                                |
+| --------------- | ----    | ---------------------------------------- |
+| `DnsConfigPath` | Không   | Đường dẫn đến tệp cấu hình DNS tùy chỉnh |
 
-#### 自定义路由配置
+#### Cấu hình định tuyến tùy chỉnh
 
-指定路由配置文件文件路径
+Chỉ định đường dẫn tệp cấu hình tuyến đường
 
 ```yaml
 RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://xtls.github.io/config/base/route/ for help
 ```
 
-| 参数              | 选项 | 说明                     |
-| ----------------- | ---- | ------------------------ |
-| `RouteConfigPath` | 无   | 自定义路由配置文件的路径 |
+| tham số           | Tùy chọn| hướng dẫn                                       | 
+| ----------------- | ----    | ------------------------ --------------------   |
+| `RouteConfigPath` | Không   | Đường dẫn đến tệp cấu hình định tuyến tùy chỉnh |
 
-#### 自定义出口配置
+#### Cấu hình xuất tùy chỉnh
 
-指定出口配置文件文件路径
+Chỉ định đường dẫn tệp hồ sơ xuất
 
 ```yaml
 OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/base/outbound/ for help
 ```
 
-| 参数                 | 选项 | 说明                     |
-| -------------------- | ---- | ------------------------ |
-| `OutboundConfigPath` | 无   | 自定义出口配置文件的路径 |
+| tham số              | Tùy chọn| hướng dẫn                                 |
+| -------------------- | ----    | ----------------------------------------  |
+| `OutboundConfigPath` | không   | Đường dẫn đến tệp cấu hình xuất tùy chỉnh |
 
-#### 连接控制
+#### kiểm soát kết nối
 
-自定义连接释放的相关配置，可以一定程度优化内存占用
+Tùy chỉnh cấu hình liên quan của bản phát hành kết nối, có thể tối ưu hóa việc sử dụng bộ nhớ ở một mức độ nhất định
 
 ```yaml
 ConnetionConfig:
@@ -177,19 +176,19 @@ ConnetionConfig:
   BufferSize: 64 # The internal cache size of each connection, kB
 ```
 
-| 参数           | 选项 | 说明                                                                                                                                                                                          |
+| tham số          | Tùy chọn| hướng dẫn                                                                                                                                                                                           |
 | -------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Handshake`    | 无   | 连接建立时的握手时间限制。单位为秒。默认值为 4。在入站代理处理一个新连接时，在握手阶段如果使用的时间超过这个时间，则中断该连接。                                                              |
-| `ConnIdle`     | 无   | 连接空闲的时间限制。单位为秒。默认值为 10。如果在 `ConnIdle` 时间内，没有任何数据被传输（包括上行和下行数据），则中断该连接。**减少该值有可能可以优化内存占用，但是会导致用户连接延时变高**。 |
-| `UplinkOnly`   | 无   | 当连接下行线路关闭后的时间限制。单位为秒。默认值为 2。当服务器（如远端网站）关闭下行连接时，出站代理会在等待`UplinkOnly`时间后中断连接。                                                      |
-| `DownlinkOnly` | 无   | 当连接上行线路关闭后的时间限制。单位为秒。默认值为 4。当服务器（如远端网站）关闭上行连接时，出站代理会在等待`DownlinkOnly`时间后中断连接。                                                    |
-| `BufferSize`   | 无   | 每个连接的内部缓存大小。单位为 kB。当值为 0 时，内部缓存被禁用。**减少该值有可能可以优化内存占用，但有可能导致CPU占用上升**                                                                   |
+| `Handshake`    | Không    | Giới hạn thời gian bắt tay khi kết nối được thiết lập. Đơn vị là giây. Giá trị mặc định là 4. Khi proxy gửi đến xử lý một kết nối mới, nếu nó mất nhiều thời gian hơn thời gian này trong giai đoạn bắt tay, thì kết nối đó sẽ bị hủy.                                                              |
+| `ConnIdle`     | Không    | Giới hạn thời gian để kết nối không hoạt động. Đơn vị là giây. Giá trị mặc định là 10. Nếu không có dữ liệu nào được truyền (cả ngược dòng và xuôi dòng) trong thời gian `ConnIdle`, kết nối sẽ bị ngắt. ** Giảm giá trị này có thể tối ưu hóa việc sử dụng bộ nhớ, nhưng nó sẽ dẫn đến độ trễ kết nối người dùng cao hơn **. |
+| `UplinkOnly`   | Không    | Giới hạn thời gian mà đường xuống của kết nối bị đóng. Đơn vị là giây. Giá trị mặc định là 2. Khi máy chủ (chẳng hạn như một trang web từ xa) đóng kết nối đường xuống, proxy gửi đi sẽ ngắt kết nối sau khi đợi thời gian `UplinkOnly`.                           |
+| `DownlinkOnly` | Không    | Giới hạn thời gian mà sau đó đường lên được kết nối bị đóng. Đơn vị là giây. Giá trị mặc định là 4. Khi máy chủ (chẳng hạn như một trang web từ xa) đóng kết nối ngược dòng, proxy gửi đi sẽ ngắt kết nối sau khi đợi thời gian `DownlinkOnly`.                        |
+| `BufferSize`   | Không    | Kích thước bộ nhớ đệm nội bộ trên mỗi kết nối. Đơn vị là kB. Khi giá trị bằng 0, bộ nhớ đệm bên trong bị vô hiệu hóa. **Giảm giá trị này có thể tối ưu hóa việc sử dụng bộ nhớ, nhưng có thể dẫn đến tăng mức sử dụng CPU**                                      |
 
-提示： 1. 减少`ConnIdle`有可能可以优化高连接数量时的内存占用，但是会导致用户连接延时变高。 2. 在 HTTP 浏览的场景中，可以将 `UplinkOnly` 和 `DownlinkOnly` 设为 0，以提高连接关闭的效率，减少内存占用。 3. 减少`BufferSize`可以优化内存占用，但是可能会导致CPU占用上升。
+Mẹo: 1. Giảm `ConnIdle` có thể tối ưu hóa việc sử dụng bộ nhớ khi số lượng kết nối nhiều, nhưng nó sẽ dẫn đến độ trễ kết nối của người dùng cao hơn. 2. Trong kịch bản duyệt HTTP, có thể đặt `UplinkOnly` và` DownlinkOnly` thành 0 để cải thiện hiệu quả của việc đóng kết nối và giảm mức sử dụng bộ nhớ. 3. Giảm `BufferSize` có thể tối ưu hóa việc sử dụng bộ nhớ, nhưng có thể làm tăng mức sử dụng CPU.
 
-### 节点配置
+### Cấu hình nút
 
-每个节点是一个独立的配置，互相不会影响，XrayR支持单实例多节点启动，同时对接多个节点。
+Mỗi nút là một cấu hình độc lập và sẽ không ảnh hưởng đến nhau. XrayR hỗ trợ khởi động và kết nối đa nút đơn phiên bản với nhiều nút cùng một lúc.
 
 ```yaml
 Nodes:
@@ -267,9 +266,9 @@ Nodes:
 PanelType: "V2board" # Panel type: SSpanel, V2board, PMpanel, Proxypanel
 ```
 
-| 参数        | 选项                                       | 说明             |
-| ----------- | ------------------------------------------ | ---------------- |
-| `PanelType` | `SSPanel`,`V2board`,`PMpanel`,`Proxypanel` | 对接前端面板类型 |
+| tham số     | Tùy chọn                                    | hướng dẫn                              |
+| ----------- | ------------------------------------------ | ----------------                       |
+| `PanelType` | `SSPanel`,`V2board`,`PMpanel`,`Proxypanel` | Loại bảng điều khiển phía trước gắn đế |
 
 #### 面板对接配置
 
@@ -288,19 +287,19 @@ ApiConfig:
     DisableCustomConfig: false # Disable custom config
 ```
 
-| 参数                  | 选项                                                 | 说明                                              |
+| tham số                 | Tùy chọn                                                | hướng dẫn                                               |
 | --------------------- | ---------------------------------------------------- | ------------------------------------------------- |
-| `ApiHost`             | 无                                                   | 对接前端面板地址                                  |
-| `ApiKey`              | 无                                                   | 前端对接通讯秘钥                                  |
-| `NodeID`              | 无                                                   | 节点ID                                            |
-| `NodeType`            | `V2ray`,`Shadowsocks`, `Shadowsocks-Plugin`,`Trojan` | 节点类型                                          |
-| `Timeout`             | 无                                                   | 设定单次访问API超时时间，默认5秒                  |
-| `EnableVless`         | `true`,`false`                                       | 是否给V2ray启用Vless协议                          |
-| `EnableXTLS`          | `true`,`false`                                       | 是否使用XTLS                                      |
-| `SpeedLimit`          | float                                                | 单位Mbps, 本地限速设置，会覆盖远程设置，0为不启用 |
-| `DeviceLimit`         | int                                                  | 本地设备限制，会覆盖远程设置，0为不启用           |
-| `RuleListPath`        | 无                                                   | 本地规则设置，指定本地规则文件路径，规则文件格式  |
-| `DisableCustomConfig` | `true`,`false`                                       | 是否启用custom_config，默认false                  |
+| `ApiHost`             | Không                                                    | Gắn địa chỉ của bảng điều khiển phía trước                                  |
+| `ApiKey`              | Không                                                    | Phím giao tiếp docking front-end                                |
+| `NodeID`              | Không                                                    | ID nút                                           |
+| `NodeType`            | `V2ray`,`Shadowsocks`, `Shadowsocks-Plugin`,`Trojan` | Loại nút                                          |
+| `Timeout`             | Không                                                    | Đặt thời gian chờ cho một lần truy cập vào API, mặc định là 5 giây                  |
+| `EnableVless`         | `true`,`false`                                       | Có bật giao thức Vless cho V2ray hay không                         |
+| `EnableXTLS`          | `true`,`false`                                       | Có sử dụng XTLS không                                      |
+| `SpeedLimit`          | float                                                | Đơn vị là Mbps, cài đặt giới hạn tốc độ cục bộ sẽ ghi đè cài đặt từ xa, 0 có nghĩa là không được bật |
+| `DeviceLimit`         | int                                                  |Giới hạn thiết bị cục bộ, sẽ ghi đè cài đặt từ xa, 0 không được bật           |
+| `RuleListPath`        | Không                                                    | Cài đặt quy tắc cục bộ, chỉ định đường dẫn tệp quy tắc cục bộ, định dạng tệp quy tắc |
+| `DisableCustomConfig` | `true`,`false`                                       | Có bật custom_config hay không, default false              |
 
 #### 后端相关配置
 
@@ -325,24 +324,24 @@ ControllerConfig:
       ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
 ```
 
-| 参数                   | 选项                               | 说明                                                                                                                                 |
+| tham số                  | Tùy chọn                              | hướng dẫn                                                                                                                                  |
 | ---------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `ListenIP`             | 无                                 | 选择监听的IP地址，`0.0.0.0`会同时监听v6和v4                                                                                          |
-| `SendIP`               | 无                                 | 用于发送数据的 IP 地址                                                                                                               |
-| `UpdatePeriodic`       | 无                                 | 从前端更新节点、用户信息和上报用户使用信息的间隔，默认60秒                                                                           |
-| `EnableDNS`            | `true`,`false`                     | 是否为当前节点启用自定义DNS，默认使用系统DNS                                                                                         |
-| `DNSType`              | `AsIs`,`UseIP`,`UseIPv4`,`UseIPv6` | DNS解析类型，`AsIs`：使用系统DNS，`UseIP`,`UseIPv4`,`UseIPv6`为使用自定义DNS，请确保`EnableDNS`为`true`，且正确配置了`DnsConfigPath` |
-| `DisableUploadTraffic` | `false`, `true`                    | 是否禁止上传节点流量，默认`false`                                                                                                    |
-| `DisableGetRule`       | `false`, `true`                    | 是否禁止获取远程规则，默认`false`                                                                                                    |
-| `DisableIVCheck`       | `false`, `true`                    | 是否关闭Shadowsocks用于防止重放攻击的布隆过滤器，默认`false`                                                                         |
-| `DisableSniffing`      | `false`, `true`                    | 是否关闭domain sniffing，默认`false`                                                                                                 |
-| `EnableProxyProtocol`  | `true`,`false`                     | 是否为当前节点启用ProxyProtocol获取中转IP，只对TCP和WS有效                                                                           |
-| `EnableFallback`       | `true`,`false`                     | 是否为当前节点启用Fallback，只对Vless和Trojan协议有效                                                                                |
-| `FallBackConfigs`      | list                               | Fallback 相关配置，请查看 [Fallback功能说明](../gong-neng-shuo-ming/fallback.md)                                                     |
+| `ListenIP`             | Không                                  | Chọn địa chỉ IP nghe, `0.0.0.0` sẽ nghe cả v6 và v4                       |
+| `SendIP`               | Không                                  | Địa chỉ IP để gửi dữ liệu                                            |
+| `UpdatePeriodic`       | Không                                  | Khoảng thời gian để cập nhật nút, thông tin người dùng và báo cáo thông tin sử dụng của người dùng từ giao diện người dùng, mặc định là 60 giây        |
+| `EnableDNS`            | `true`,`false`                     | Có bật DNS tùy chỉnh cho nút hiện tại hay không, hãy sử dụng DNS hệ thống theo mặc định                           |
+| `DNSType`              | `AsIs`,`UseIP`,`UseIPv4`,`UseIPv6` | Loại phân giải DNS, `AsIs`: sử dụng DNS hệ thống,` UseIP`, `UseIPv4`,` UseIPv6` để sử dụng DNS tùy chỉnh, vui lòng đảm bảo rằng `EnableDNS` là` đúng thực tế '' và `DnsConfigPath` được định cấu hình chính xác|
+| `DisableUploadTraffic` | `false`, `true`                    |Có cấm tải lên lưu lượng nút hay không, mặc định là `false`                                          |
+| `DisableGetRule`       | `false`, `true`                    |Có cấm nhận các quy tắc từ xa hay không, mặc định là `false`                                          |
+| `DisableIVCheck`       | `false`, `true`                    | Có tắt bộ lọc Bloom được Shadowsocks sử dụng để ngăn các cuộc tấn công phát lại hay không, mặc định là `false`               |
+| `DisableSniffing`      | `false`, `true`                    | Có tắt tính năng dò tìm miền hay không, mặc định là `false`                                       |
+| `EnableProxyProtocol`  | `true`,`false`                     |Có bật ProxyProtocol cho nút hiện tại để lấy IP chuyển tiếp hay không, chỉ hợp lệ cho TCP và WS            |
+| `EnableFallback`       | `true`,`false`                     |Có bật Dự phòng cho nút hiện tại hay không, chỉ hợp lệ cho các giao thức Vless và Trojan               |
+| `FallBackConfigs`      | list                               | Cấu hình liên quan đến dự phòng, vui lòng kiểm tra [Chức năng dự phòng hướng dẫn ](../gong-neng-shuo-ming/fallback.md)                                                     |
 
-#### 证书申请相关配置
+#### Cấu hình liên quan đến ứng dụng chứng chỉ
 
-XrayR 支持多种自动申请证书配置。申请到的证书将会放在**配置文件(config.yml)目录的`cert`文件夹下**。
+XrayR hỗ trợ nhiều cấu hình yêu cầu chứng chỉ tự động. Chứng chỉ được áp dụng sẽ được đặt trong thư mục `cert` của thư mục **config file (config.yml) *.
 
 ```yaml
 CertConfig:
@@ -357,11 +356,11 @@ CertConfig:
         ALICLOUD_SECRET_KEY: bbb
 ```
 
-| 参数         | 选项                       | 说明                                                                                                                                                                                |
+| tham số        | Tùy chọn                      | hướng dẫn                                                                                                                                                                                 |
 | ------------ | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CertMode`   | `none`,`file`,`http`,`dns` | 获取证书的方式。`file`:手动提供，并制定路径。`http`：通过http申请，需要80端口。`dns`：使用dns模式申请，需要制定相关dns服务商配置。`none`：强制关闭tls设置，交由nginx或者caddy处理。 |
-| `CertDomain` | 无                         | 申请证书域名                                                                                                                                                                        |
-| `CertFile`   | 无                         | 手动指定的证书路径                                                                                                                                                                  |
-| `KeyFile`    | 无                         | 手动指定的私钥路径                                                                                                                                                                  |
-| `Provider`   | 无                         | dns提供商，所有支持的dns提供商请在此获取：[https://go-acme.github.io/lego/dns/](https://go-acme.github.io/lego/dns/)                                                                |
-| `DNSEnv`     | 无                         | 采用DNS申请证书需要的环境变量，请参考上文链接内，自己的dns提供商所需要的参数，填写于此。请注意一行一个，填写时需符合yaml文件格式。                                                  |
+| `CertMode`   | `none`,`file`,`http`,`dns` | Làm thế nào để nhận được chứng chỉ. `tệp`: Cung cấp thủ công và chỉ định đường dẫn. `http`: Đăng ký qua http, yêu cầu cổng 80. `dns`: Để sử dụng chế độ dns, bạn cần phải xây dựng cấu hình của nhà cung cấp dịch vụ dns có liên quan. `none`: Buộc đóng cài đặt tls và để nginx hoặc caddy xử lý.|
+| `CertDomain` | Không                          |Đăng ký tên miền chứng chỉ                                                                                                                      |
+| `CertFile`   | Không                          |Đường dẫn chứng chỉ được chỉ định theo cách thủ công                                                                                                                 |
+| `KeyFile`    | Không                          |Đường dẫn khóa cá nhân được chỉ định theo cách thủ công                                                                                                                |
+| `Provider`   | Không                          |Các nhà cung cấp dns, tất cả các nhà cung cấp dns được hỗ trợ có thể được tìm thấy tại đây:[https://go-acme.github.io/lego/dns/](https://go-acme.github.io/lego/dns/)                                                                |
+| `DNSEnv`     | Không                          |Đối với các biến môi trường bắt buộc để đăng ký chứng chỉ sử dụng DNS, vui lòng tham khảo liên kết ở trên và điền vào các thông số do nhà cung cấp DNS của riêng bạn yêu cầu. Hãy chú ý đến một dòng trên mỗi dòng và nó phải tuân theo định dạng tệp yaml khi điền vào.    |

@@ -1,20 +1,19 @@
-# 为什么要引入Shadowsocks - V2Ray-Plugin
+# Tại sao giới thiệu Shadowsocks - V2Ray-Plugin
 
-## Update on 2021/07/04
+## Cập nhật vào 2021/07/04
 
-我错怪Trojan了，通过后端禁用TLS，配合Nginx的Stream模块也可以实现，Nginx代理处理Trojan的TLS，达到隐藏TLS握手信息的效果，同时可以fallback到http1.1的站点达到比SS更高的性能水平。
+Tôi đã đổ lỗi nhầm cho Trojan. Việc vô hiệu hóa TLS thông qua phần phụ trợ cũng có thể đạt được với mô-đun Luồng của Nginx. Proxy Nginx xử lý TLS của Trojan để đạt được hiệu quả ẩn thông tin bắt tay TLS và đồng thời, nó có thể dự phòng cho các trang web http1.1 để đạt được cao hơn cấp hiệu suất SS.
 
-## 原文
+## Nguyên bản
 
-很多人觉得有Shadowsocks单端口就够了呀，为啥要引入Shadowsocks - V2Ray-Plugin呢？
+Nhiều người nghĩ rằng chỉ một cổng Shadowsocks là đủ, tại sao lại giới thiệu Shadowsocks - V2Ray-Plugin?
 
-首先针对近日来的国际互联网通讯情况，我个人分析认为，在特殊时期，会针对go的TLS握手行为进行匹配，并加以阻断。再加上现有大部分的软件（如V2ray-core,Xray-core）都是以go实现的，并采用go的库进行TLS处理。因此在特殊时期，可以对go的TLS握手行为可以进行识别，从而导致端口精准阻断。所以大部分直接采用go进行tls处理的协议，比如Trojan，在近日遭受了严重阻断。同样，使用Caddy反代进行伪装的行为也遭受了阻断。
+Trước hết, theo tình hình giao tiếp Internet quốc tế gần đây, phân tích cá nhân của tôi tin rằng trong những giai đoạn đặc biệt, hành vi bắt tay TLS của go sẽ bị khớp và bị chặn. Ngoài ra, hầu hết các phần mềm hiện có (chẳng hạn như V2ray-core, Xray-core) đều được triển khai khi chạy và sử dụng thư viện go để xử lý TLS. Do đó, trong một khoảng thời gian đặc biệt, hành vi bắt tay của TLS khi di chuyển có thể được xác định, dẫn đến việc chặn cổng chính xác. Do đó, hầu hết các giao thức sử dụng trực tiếp để xử lý TLS, chẳng hạn như Trojan, đã bị chặn nghiêm trọng trong những ngày gần đây. Tương tự như vậy, giả mạo bằng cách sử dụng Caddy đã bị chặn.
 
-虽然针对go的TLS库进行识别的行为有极大的误报率（封杀正常的Caddy反代的网站），但是在特殊时期已经被证实是可能实行的了。因我认为，需要隐藏go的TLS握手行为，从而达到更高的隐蔽性。为此，我认为采用C语言编写的NGINX是目前最好的选择。现有情况也表明：Vmess+ws+tls+nginx在目前存活性最好。
+Mặc dù hành vi xác định thư viện TLS cho go có tỷ lệ dương tính giả rất lớn (chặn trang web chống tạo Caddy thông thường), nhưng nó đã được chứng minh là có thể xảy ra trong một giai đoạn đặc biệt. Theo tôi, cần ẩn hành vi bắt tay TLS của go để đạt được khả năng tàng hình cao hơn. Đối với điều này, tôi nghĩ NGINX được viết bằng C là lựa chọn tốt nhất ngay bây giờ. Tình hình hiện có cũng cho thấy Vmess + ws + tls + nginx có khả năng sống sót tốt nhất hiện tại.
 
-Vmess+ws+tls+nginx虽然已经成功隐藏了go的TLS握手信息，但是Vmess协议由于其本身设计，会产生大量的内存占用。同时其基于时间的验证设计，增加了其使用难度。~~而Trojan暂时又不支持使用其他软件进行TLS处理~~。此时Shadowsocks - V2Ray-Plugin成为了最好的选择。
+Mặc dù Vmess + ws + tls + nginx đã ẩn thành công thông tin bắt tay TLS của go, giao thức Vmess sẽ tạo ra nhiều mức sử dụng bộ nhớ do thiết kế riêng của nó. Đồng thời, thiết kế xác minh dựa trên thời gian của nó làm tăng độ khó khi sử dụng. ~~ Và Trojan tạm thời không hỗ trợ việc sử dụng các phần mềm khác để xử lý TLS ~~. Lúc này Shadowsocks - V2Ray-Plugin trở thành sự lựa chọn tốt nhất.
 
-Shadowsocks - V2Ray-Plugin，首先是基于Shadowsocks的。得益于Shadowsocks协议设计，使得Shadowsocks拥有比Vmess更快的速度和不依赖时间的验证。同时V2Ray-Plugin给予Shadowsocks进行websocket混淆和TLS加密的能力。极大增强了Shadowsocks的安全性，使得流量可以直接在公网传输，不再需要隧道。同时可以把TLS交由NGINX处理，隐藏go的相关特征，防止被阻断端口。
+Shadowsocks - V2Ray-Plugin, lần đầu tiên dựa trên Shadowsocks. Nhờ thiết kế giao thức Shadowsocks, Shadowsocks có tốc độ nhanh hơn và xác minh không phụ thuộc vào thời gian so với Vmess. Đồng thời, V2Ray-Plugin cung cấp cho Shadowsocks khả năng thực hiện mã hóa websocket và mã hóa TLS. Nó tăng cường đáng kể tính bảo mật của Shadowsocks, do đó lưu lượng truy cập có thể được truyền trực tiếp trên mạng công cộng mà không cần đào hầm. Đồng thời, TLS có thể được chuyển giao cho NGINX để ẩn các tính năng liên quan của go và ngăn chặn các cổng bị chặn.
 
-综上所述，为了隐藏特征，我强烈建议采用nginx+ws+tls+everything的做法，在目前情况下，nginx+ws+tls+ss的配置会优于nginx+ws+tls+vmess。同时为了长远考虑，我建议所有的协议实现软件采用C语言提供的TLS库进行TLS相关处理，或者参考Shadowsocks分离出插件层，方便使用第三方软件如nginx进行TLS处理。
-
+Tóm lại, để ẩn các tính năng, tôi thực sự khuyên bạn nên sử dụng cách tiếp cận nginx + ws + tls + everything.Trong tình hình hiện tại, cấu hình nginx + ws + tls + ss tốt hơn nginx + ws + tls + vmess . Đồng thời, để xem xét lâu dài, tôi khuyên tất cả phần mềm triển khai giao thức sử dụng thư viện TLS được cung cấp bởi ngôn ngữ C để xử lý liên quan đến TLS hoặc tham khảo Shadowsocks để tách lớp trình cắm thêm để tạo điều kiện sử dụng thứ ba- phần mềm của bên như nginx để xử lý TLS.

@@ -1,10 +1,9 @@
-# 内存优化相关
+# Liên quan đến tối ưu hóa bộ nhớ
 
-## 链接控制优化
+## Tối ưu hóa kiểm soát liên kết
 
-通过自定义`ConnetionConfig`连接释放的[相关配置](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#lian-jie-kong-zhi)，可以一定程度优化内存占用
+Được phát hành bởi kết nối `ConnectionConfig` tùy chỉnh[Cấu hình liên quan](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#lian-jie-kong-zhi)，Có thể tối ưu hóa việc sử dụng bộ nhớ ở một mức độ nhất định
 
-1. 减少`ConnIdle`有可能可以优化高连接数量时的内存占用，但是会导致用户连接延时变高。
-2. 在 HTTP 浏览的场景中，可以将 `UplinkOnly` 和 `DownlinkOnly` 设为 0，以提高连接关闭的效率，减少内存占用。
-3. 减少`BufferSize`可以优化内存占用，但是可能会导致CPU占用上升。
-
+1. Giảm `ConnIdle` có thể tối ưu hóa việc sử dụng bộ nhớ khi số lượng kết nối nhiều, nhưng nó sẽ dẫn đến độ trễ kết nối của người dùng cao hơn.
+2. Trong kịch bản duyệt HTTP, có thể đặt `UplinkOnly` và` DownlinkOnly` thành 0 để cải thiện hiệu quả của việc đóng kết nối và giảm mức sử dụng bộ nhớ.
+3. Giảm `BufferSize` có thể tối ưu hóa việc sử dụng bộ nhớ, nhưng có thể làm tăng mức sử dụng CPU.

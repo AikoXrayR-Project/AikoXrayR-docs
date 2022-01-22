@@ -1,8 +1,8 @@
-# Nginx+Trojan暂时滴神！
+# Nginx + Trojan tạm thời nhỏ giọt!
 
-使用Nginx处理Trojan的TLS，Trojan进行回落。我愿称ta暂时滴神！
+Sử dụng Nginx để xử lý TLS của Trojan, Trojan rơi trở lại. Tôi xin được gọi anh ấy là một vị thần trong lúc này!
 
-## Nginx安装
+## Cài đặt Nginx
 
 CentOS：
 
@@ -19,9 +19,9 @@ Ubuntu/Debian:
  apt install nginx
 ```
 
-## Nginx配置
+## Cấu hình Nginx
 
-修改/etc/nginx/nginx.conf配置文件：
+Sửa đổi tệp cấu hình /etc/nginx/nginx.conf:
 
 ```text
 stream {
@@ -41,9 +41,9 @@ stream {
 }
 ```
 
-请将上方代码添加到**http**与**events**中间一行
+Vui lòng thêm mã trên vào dòng giữa ** http ** và ** sự kiện **
 
-**/etc/nginx/nginx.conf配置文件参考：**
+**Tham chiếu tệp cấu hình ** / etc / nginx / nginx.conf:**
 
 ```text
 events {
@@ -74,17 +74,17 @@ http {
     ##
 ```
 
-**注意事项：**
+**Các biện pháp phòng ngừa:**
 
-**1. 请配置SSL证书**
+**1. Vui lòng định cấu hình chứng chỉ SSL**
 
-**2. proxy\_pass 127.0.0.1:1234 后端Trojan监听端口与您网站前端节点监听端口一致**
+**2. proxy \ _pass 127.0.0.1:1234 Cổng lắng nghe Trojan phụ trợ giống như cổng lắng nghe nút giao diện người dùng trên trang web của bạn**
 
-**3. listen端口可以1-65535随意修改，此处为客户端连接端口**
+**3. Có thể sửa đổi cổng nghe theo ý muốn từ 1-65535, đây là cổng kết nối máy khách**
 
-## XrayR Trojan配置
+## Cấu hình Trojan XrayR
 
-**关键配置：**
+**cấu hình chính：**
 
 ```text
 ListenIP: 127.0.0.1
@@ -101,7 +101,7 @@ CertMode: none
 注意2：在回落时请确保回落站点是http1.1，nginx如果有一个站点是h2会导致全部站点都变成h2（巨坑）
 {% endhint %}
 
-**完整样例**
+** Toàn bộ ví dụ **
 
 ```text
   -
@@ -143,7 +143,7 @@ CertMode: none
           ALICLOUD_SECRET_KEY: bbb
 ```
 
-## 重启并检查 Nginx 和 XrayR
+## Khởi động lại và kiểm tra Nginx và XrayR
 
 ```text
 systemctl restart nginx

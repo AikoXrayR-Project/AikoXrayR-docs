@@ -1,6 +1,6 @@
-# 使用docker安装
+# Cài đặt bằng docker
 
-## 安装 Docker
+## Cài đặt Docker
 
 ### Centos
 
@@ -34,7 +34,7 @@ systemctl start docker
 systemctl enable docker
 ```
 
-## 安装Docker-compose
+## Cài đặt Docker-compose
 
 ```bash
 curl -fsSL https://get.docker.com | bash -s docker
@@ -42,26 +42,26 @@ curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compo
 chmod +x /usr/local/bin/docker-compose
 ```
 
-## Docker-compose 安装XrayR \(推荐\)
+## Docker-compose Cài đặt XrayR \(giới thiệu\)
 
 1. `git clone https://github.com/XrayR-project/XrayR-release`
 2. `cd XrayR-release`
-3. 编辑配置文件：`config.yml`，详见：[配置文件说明](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
+3. Chỉnh sửa tệp cấu hình：`config.yml`，xem chi tiết：[Mô tả tệp cấu hình](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
 4. 启动docker：`docker-compose up -d`
 
-## Docker run 安装XrayR
+## Docker run Cài đặt XrayR
 
-请注意指定`config.yml`目录。
+Hãy cẩn thận chỉ định thư mục `config.yml`.
 
 ```bash
 docker pull crackair/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host crackair/xrayr:latest
 ```
 
-## 更新XrayR
+## Cập nhật XrayR
 
-docker-compose仅需两条简单通用的命令即可实现更新、删除容器并重启。更新软件后`config.yml`不会被更新覆盖。
+docker-composeCập nhật, xóa vùng chứa và khởi động lại chỉ với hai lệnh đơn giản và chung chung. `config.yml` sẽ không bị bản cập nhật ghi đè sau khi cập nhật phần mềm.
 
-注意在 docker-compose.yml 所在的目录下执行：
+Lưu ý rằng thực thi trong thư mục chứa docker-compose.yml:
 
 ```bash
 docker-compose pull

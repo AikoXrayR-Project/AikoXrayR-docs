@@ -1,78 +1,76 @@
 ---
-description: A Xray backend framework that can easily support many panels.
+Mô tả: Một khung phụ trợ Xray có thể dễ dàng hỗ trợ nhiều bảng.
 ---
 
-# 关于XrayR
+# Về XrayR
 
 ## XrayR
 
-A Xray backend framework that can easily support many panels.
+Một khung phụ trợ Xray có thể dễ dàng hỗ trợ nhiều bảng.
 
-一个基于Xray的后端框架，支持V2ay,Trojan,Shadowsocks协议，极易扩展，支持多面板对接。
+Một khung công tác back-end dựa trên Xray, hỗ trợ các giao thức V2ay, Trojan, Shadowsocks, cực kỳ dễ mở rộng và hỗ trợ kết nối nhiều bảng điều khiển.
 
-项目地址: [https://github.com/XrayR-project](https://github.com/XrayR-project)
 
-## 项目目录
+## thư mục dự án
 
-* [XrayR](https://github.com/XrayR-project/XrayR)：XrayR源码以及软件发布。
-* [XrayR-release](https://github.com/XrayR-project/XrayR-release)：XrayR一键安装脚本以及Docker。
-* [XrayR-doc](https://github.com/XrayR-project/XrayR-doc)：XrayR文档源码。
+* [XrayR](https://github.com/XrayR-project/XrayR)：Mã nguồn XrayR và phân phối phần mềm.
+* [XrayR-release](https://github.com/XrayR-project/XrayR-release)：Tập lệnh cài đặt một cú nhấp chuột của XrayR cùng với Docker.
+* [XrayR-doc](https://github.com/XrayR-project/XrayR-doc)：Mã nguồn tài liệu XrayR.
 
-## 特点
+## Đặc trưng
 
-* 永久开源且免费。
-* 支持V2ray，Trojan， Shadowsocks多种协议。
-* 支持Vless和XTLS等新特性。
-* 支持单实例对接多面板、多节点，无需重复启动。
-* 支持限制在线IP
-* 支持节点端口级别、用户级别限速。
-* 配置简单明了。
-* 修改配置自动重启实例。
-* 方便编译和升级，可以快速更新核心版本， 支持Xray-core新特性。
+* Mã nguồn mở vĩnh viễn và miễn phí.
+* Hỗ trợ nhiều giao thức V2ray, Trojan, Shadowsocks.
+* Hỗ trợ các tính năng mới như Vless và XTLS.
+* Hỗ trợ kết nối đơn lẻ với nhiều bảng và nút mà không cần khởi động lại.
+* Hỗ trợ IP trực tuyến bị hạn chế
+* Hỗ trợ mức cổng nút, giới hạn tốc độ mức người dùng.
+* Cấu hình đơn giản và rõ ràng.
+* Sửa đổi cấu hình để tự động khởi động lại phiên bản.
+* Dễ dàng biên dịch và nâng cấp, có thể nhanh chóng cập nhật phiên bản lõi, hỗ trợ các tính năng mới của Xray-core.
 
-## 功能介绍
+## Đặc trưng
 
-| 功能            | v2ray | trojan | shadowsocks |
-| :-------------- | :---- | :----- | :---------- |
-| 获取节点信息    | √     | √      | √           |
-| 获取用户信息    | √     | √      | √           |
-| 用户流量统计    | √     | √      | √           |
-| 服务器信息上报  | √     | √      | √           |
-| 自动申请tls证书 | √     | √      | √           |
-| 自动续签tls证书 | √     | √      | √           |
-| 在线人数统计    | √     | √      | √           |
-| 在线用户限制    | √     | √      | √           |
-| 审计规则        | √     | √      | √           |
-| 节点端口限速    | √     | √      | √           |
-| 按照用户限速    | √     | √      | √           |
-| 自定义DNS       | √     | √      | √           |
+| Đặc trưng                         | v2ray | trojan | shadowsocks |
+| ---------------------------       | ----- | ------ | ----------- |
+| Nhận thông tin về nút             | √     | √      | √           |
+| Nhận thông tin người dùng         | √     | √      | √           |
+| Thống kê lưu lượng người dùng     | √     | √      | √           |
+| Báo cáo thông tin máy chủ         | √     | √      | √           |
+| Tự động đăng ký chứng chỉ TLS     | √     | √      | √           |
+| tự động gia hạn chứng chỉ tls     | √     | √      | √           |
+| Số người trực tuyến               | √     | √      | √           |
+| Hạn chế Người dùng Trực tuyến     | √     | √      | √           |
+| quy tắc kiểm toán                 | √     | √      | √           |
+| Giới hạn tốc độ cổng nút          | √     | √      | √           |
+| Giới hạn tốc độ của người dùng    | √     | √      | √           |
+| DNS tùy chỉnh                     | √     | √      | √           |
+## Hỗ trợ giao diện người dùng
 
-## 支持前端
+| đầu trước                                              | v2ray | trojan | shadowsocks                                 |
+| ------------------------------------------------------ | ----- | ------ | ------------------------------------------- |
+| [sspanel-uim](https://github.com/Anankke/SSPanel-Uim)  | √     | √      | √ (Đa người dùng một cổng và V2ray-Plugin)  |
+| [v2board](https://github.com/v2board/v2board)          | √     | √      | √                                           |
+| [PMPanel](https://github.com/ByteInternetHK/PMPanel)   | √     | √      | √                                           |
+| [ProxyPanel](https://github.com/ProxyPanel/ProxyPanel) | √     | √      | ×                                           |
 
-| 前端                                                   | v2ray | trojan | shadowsocks                      |
-| :----------------------------------------------------- | :---- | :----- | :------------------------------- |
-| sspanel-uim                                            | √     | √      | √ \(单端口多用户和V2ray-Plugin\) |
-| v2board                                                | √     | √      | √                                |
-| [PMPanel](https://github.com/ByteInternetHK/PMPanel)   | √     | √      | √                                |
-| [ProxyPanel](https://github.com/ProxyPanel/ProxyPanel) | √     | √      | √                                |
+## Giao thức hỗ trợ V2ray
 
-## V2ray支持协议
+| giao thức      | Tình hình hỗ trợ                                                                    |
+| :--------      | :---------------------------------------------------------------------------------- |
+| VMess          | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls                     |
+| VMessAEAD      | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls                     |
+| VLess          | tcp, tcp+http, tcp+tls/xtls, ws, ws+tls/xtls, h2c, h2+tls/xtls, grpc, grpc+tls/xtls |
 
-| 协议      | 支持情况                                                                            |
-| :-------- | :---------------------------------------------------------------------------------- |
-| VMess     | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls                     |
-| VMessAEAD | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls                     |
-| VLess     | tcp, tcp+http, tcp+tls/xtls, ws, ws+tls/xtls, h2c, h2+tls/xtls, grpc, grpc+tls/xtls |
+## Thỏa thuận hỗ trợ Trojan
 
-## Trojan支持协议
+| giao thức  | Tình hình hỗ trợ |
+| :-----     | :-------         |
+| Trojan     | √                |
 
-| 协议   | 支持情况 |
-| :----- | :------- |
-| Trojan | √        |
+## Giao thức hỗ trợ Shadowsocks
 
-## Shadowsocks支持协议
-
-| 协议            | 支持情况 | 加密方法                                         |
-| :-------------- | :------- | :----------------------------------------------- |
-| ShadowsocksAEAD | √        | aes-128-gcm, aes-256-gcm, chacha20-ietf-poly1305 |
+| giao thức          | Tình hình hỗ trợ | phương pháp mã hóa                               |
+| :----------------- | :--------------- | :----------------------------------------------- |
+| ShadowsocksAEAD    | √                | aes-128-gcm, aes-256-gcm, chacha20-ietf-poly1305 |
 
