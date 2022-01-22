@@ -1,14 +1,13 @@
-# 设备连接限制功能说明
+# Mô tả chức năng hạn chế kết nối thiết bị
 
-由于大量面板不再支持远程设备限制指定，现增加本地设备限制参数。
+Vì một số lượng lớn bảng không còn hỗ trợ đặc điểm kỹ thuật giới hạn thiết bị từ xa, thông số giới hạn thiết bị cục bộ hiện đã được thêm vào.
 
-如需启用，可在配置文件中将`DeviceLimit`设为非0值，注意此设置会覆盖远程获取的用户设备限制数目。
+Để bật tính năng này, hãy đặt `DeviceLimit` thành giá trị khác 0 trong tệp cấu hình. Lưu ý rằng cài đặt này sẽ ghi đè giới hạn về số lượng thiết bị người dùng có được từ xa.
 
-配置文件详见：[配置文件说明](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
+Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
 
 ## 全局设备限制
 
-当XrayR版本&gt;=v0.7.1，SSpanel版本&gt;=[2021.9](https://github.com/Anankke/SSPanel-Uim/releases/tag/2021.9)，XrayR将会针对SSpanel启用全局设备限制功能。此时，不同后端结点将会全局限制独立IP连接数量，而非各后端本地限制。
+Khi phiên bản XrayR &gt;= v0.7.1, phiên bản SSpanel &gt;=[2021.9](https://github.com/Anankke/SSPanel-Uim/releases/tag/2021.9)，XrayR sẽ kích hoạt các hạn chế thiết bị toàn cầu cho SSpanel. Tại thời điểm này, các nút phụ trợ khác nhau sẽ giới hạn toàn cầu số lượng kết nối IP độc lập, thay vì giới hạn cục bộ của mỗi phần phụ trợ.
 
-当设备限制为1时，不同结点之间的切换会受到限制，建议至少设置设备数为2。并且由于SSPanel面板限制，IP连接信息可能需要至少2分钟才能传递到全部的后端结点，因此在2分钟内的同时连接将不能被限制。
-
+Khi giới hạn thiết bị là 1, việc chuyển đổi giữa các nút khác nhau sẽ bị hạn chế. Bạn nên đặt số lượng thiết bị ít nhất là 2. Và do giới hạn bảng điều khiển SSPanel, có thể mất ít nhất 2 phút để thông tin kết nối IP được truyền đến tất cả các nút phụ trợ, vì vậy các kết nối đồng thời trong vòng 2 phút sẽ không bị hạn chế.

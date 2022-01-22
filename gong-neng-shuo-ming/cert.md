@@ -1,8 +1,8 @@
-# 自动申请证书说明
+# Hướng dẫn đăng ký chứng chỉ tự động
 
-XrayR 支持多种自动申请证书配置。申请到的证书将会放在**配置文件\(config.yml\)目录的`cert`文件夹下**。
+XrayR hỗ trợ nhiều cấu hình yêu cầu chứng chỉ tự động. Chứng chỉ được áp dụng sẽ được đặt trong thư mục `cert` trong thư mục**config file \ (config.yml \)**.
 
-以下是自动申请证书的相关配置文件说明。
+Sau đây là các mô tả tệp cấu hình có liên quan để tự động đăng ký chứng chỉ.
 
 ```yaml
 CertConfig:
@@ -17,12 +17,12 @@ CertConfig:
         ALICLOUD_SECRET_KEY: bbb
 ```
 
-| 参数 | 选项 | 说明 |
+| tham số | 选项 | 说明 |
 | :--- | :--- | :--- |
-| `CertMode` | `none`,`file`,`http`,`dns` | 获取证书的方式。`file`:手动提供，并制定路径。`http`：通过http申请，需要80端口。`dns`：使用dns模式申请，需要制定相关dns服务商配置。`none`：强制关闭tls设置，交由nginx或者caddy处理。 |
-| `CertDomain` | 无 | 申请证书域名 |
-| `CertFile` | 无 | 手动指定的证书路径 |
-| `KeyFile` | 无 | 手动指定的私钥路径 |
-| `Provider` | 无 | dns提供商，所有支持的dns提供商请在此获取：[https://go-acme.github.io/lego/dns/](https://go-acme.github.io/lego/dns/) |
-| `DNSEnv` | 无 | 采用DNS申请证书需要的环境变量，请参考上文链接内，自己的dns提供商所需要的参数，填写于此。请注意一行一个，填写时需符合yaml文件格式。 |
+| `CertMode` | `none`,`file`,`http`,`dns` | 获Làm thế nào để nhận được chứng chỉ. `tệp`: Cung cấp thủ công và chỉ định đường dẫn. `http`: Đăng ký qua http, yêu cầu cổng 80. `dns`: Để sử dụng chế độ dns, bạn cần phải xây dựng cấu hình của nhà cung cấp dịch vụ dns có liên quan. `none`: Buộc đóng cài đặt tls và để nginx hoặc caddy xử lý.|
+| `CertDomain` | Không  | Đăng ký tên miền chứng chỉ|
+| `CertFile` | Không  | Đường dẫn chứng chỉ được chỉ định theo cách thủ công |
+| `KeyFile` | Không  | Đường dẫn khóa cá nhân được chỉ định theo cách thủ công |
+| `Provider` | Không  |Các nhà cung cấp dns, tất cả các nhà cung cấp dns được hỗ trợ có thể được tìm thấy tại đây:[https://go-acme.github.io/lego/dns/](https://go-acme.github.io/lego/dns/) |
+| `DNSEnv` | Không  |Đối với các biến môi trường bắt buộc để đăng ký chứng chỉ sử dụng DNS, vui lòng tham khảo liên kết ở trên và điền vào các thông số do nhà cung cấp DNS của riêng bạn yêu cầu. Hãy chú ý đến một dòng trên mỗi dòng và nó phải tuân theo định dạng tệp yaml khi điền vào. |
 

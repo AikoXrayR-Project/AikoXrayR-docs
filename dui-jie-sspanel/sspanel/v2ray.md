@@ -1,6 +1,6 @@
-# 对接V2ray
+# Gắn kết với V2ray
 
-| 协议 | 支持情况 |
+| giao thức| Tình hình hỗ trợ |
 | :--- | :--- |
 | VMess | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
 | VMessAEAD | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |

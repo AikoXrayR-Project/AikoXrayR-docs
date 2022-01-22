@@ -1,16 +1,16 @@
-# 限速功能说明
+# Mô tả chức năng giới hạn tốc độ
 
-1. 节点限速：请在SSpanel的节点限速处填写，单位Mbps。
-2. 用户限速：请在SSpanel的用户设置处填写，单位Mbps。
-3. 限速值设为0，则为不限速。
+1. Giới hạn tốc độ nút: Vui lòng điền vào giới hạn tốc độ nút của SSpanel, tính bằng Mbps.
+2. Giới hạn tốc độ người dùng: Vui lòng điền vào cài đặt người dùng của SSpanel, đơn vị là Mbps.
+3. Nếu giá trị giới hạn tốc độ được đặt thành 0, có nghĩa là không có giới hạn tốc độ.
 
-## 本地节点限速设置
+## Cài đặt giới hạn tốc độ nút cục bộ
 
-针对不支持远程设置限速的面板：如V2board，可以在本地配置文件`SpeedLimit`设置限速。注意此设置会覆盖远程获取的节点级别限速。
+Đối với bảng không hỗ trợ cài đặt giới hạn tốc độ từ xa: chẳng hạn như V2board, giới hạn tốc độ có thể được đặt trong tệp cấu hình cục bộ `SpeedLimit`. Lưu ý rằng cài đặt này ghi đè giới hạn tốc độ cấp nút để tìm nạp từ xa.
 
-{% hint style="info" %}
-节点限速：所有连接到该节点的用户限速值都会采用`SpeedLimit`中的设置值**（不是端口限速）**
-{% endhint %}
+{% hint style = "info"%}
+Giới hạn tốc độ nút: Tất cả các giá trị giới hạn tốc độ của người dùng được kết nối với nút này sẽ sử dụng giá trị được đặt trong `SpeedLimit` ** (không phải giới hạn tốc độ cổng) **
+{% endhint%}
 
-配置文件详见：[配置文件说明](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
+Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
 

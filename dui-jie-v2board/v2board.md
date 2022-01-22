@@ -1,14 +1,14 @@
-# 基本对接配置
+# Cấu hình đế cắm cơ bản
 
-1. 在`config.yml`中配置`PanelType: "V2board"`。
-2. V2board只有V2ray节点类型支持审计规则。
-3. 启用vless和xtls，请在配置文件中手动启动，V2board不支持在线配置。
+1. Định cấu hình `PanelType:" V2board "` trong `config.yml`.
+2. V2board chỉ hỗ trợ các quy tắc kiểm tra cho các loại nút V2ray.
+3. Kích hoạt vless và xtls, vui lòng khởi động thủ công trong tệp cấu hình, V2board không hỗ trợ cấu hình trực tuyến.
 
-配置文件详见：[配置文件说明](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
+Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
 
-### 对接vmess+grpc
+### Gắn kết vmess + grpc
 
-为了成功支持clash连接，在对接vmess+grpc时，v2board需要在传输协议配置中增加如下内容：
+Để hỗ trợ thành công kết nối sự cố, khi kết nối với vmess + grpc, v2board cần thêm nội dung sau vào cấu hình giao thức truyền:
 
 ```text
 {
@@ -16,11 +16,11 @@
 }
 ```
 
-，其中`"name"`换成你的域名，或其他sni分流域名
+，Trường hợp `" name "` được thay thế bằng tên miền của bạn hoặc tên miền giảm tải khác
 
-### 对接vmess+tcp+http
+### Gắn kết vmess + tcp + http
 
-在对接vmess+tcp+http时，v2board需要在传输协议配置中增加如下内容：
+Khi kết nối với vmess + tcp + http, v2board cần thêm nội dung sau vào cấu hình giao thức truyền:
 
 ```text
 {
@@ -32,5 +32,5 @@
 }
 ```
 
-其中`request`和`response`中的内容请自行参照[Xray-core文档](https://xtls.github.io/config/transports/tcp.html#httpheaderobject)设置。
+Vui lòng tham khảo nội dung của `yêu cầu` và` phản hồi ` [Tài liệu Xray-core](https://xtls.github.io/config/transports/tcp.html#httpheaderobject)cài đặt。
 

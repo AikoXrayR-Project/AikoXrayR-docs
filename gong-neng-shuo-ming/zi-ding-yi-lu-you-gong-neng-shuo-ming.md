@@ -1,16 +1,15 @@
-# 自定义路由功能说明
+# Mô tả chức năng định tuyến tùy chỉnh
 
-XrayR完整支持全部的Xray-core所提供的自定义路由功能，具体启用方式如下：
+XrayR hỗ trợ đầy đủ tất cả các chức năng định tuyến tùy chỉnh do Xray-core cung cấp. Các phương pháp kích hoạt cụ thể như sau:
 
-1. 编写 route.json文件，此配置与Xray 路由配置完全相同，请查看：[https://xtls.github.io/config/routing.html](https://xtls.github.io/config/routing.html)获取帮助。
-2. 在`config.yml`中配置`RouteConfigPath`为route.json的路径。
-3. 如果要启用geoip相关配置，请确保`geoip.dat`和`geosite.dat`处于和`config.yml`同一目录。
+1. Viết tệp route.json, cấu hình này hoàn toàn giống với cấu hình định tuyến Xray, vui lòng kiểm tra:[https://xtls.github.io/config/routing.html](https://xtls.github.io/config/routing.html)Được trợ giúp.
+2. Định cấu hình `RouteConfigPath` làm đường dẫn của route.json trong` config.yml`.
+3. Nếu bạn muốn bật cấu hình liên quan đến geoip, hãy đảm bảo rằng `geoip.dat` và` geosite.dat` nằm trong cùng một thư mục với `config.yml`.
+{% hint style = "info"%}
+InboundTag / outboundTag được tạo tự động của một nút được lấy từ xa có dạng NodeType \ _Port. Chẳng hạn như: V2ray \ _80. Các thẻ gửi đến / gửi đi đều giống nhau.
+{% endhint%}
 
-{% hint style="info" %}
-远程获取的节点自动生成的inboundTag/outboundTag遵循：NodeType\_Port的形式。如：V2ray\_80。入/出站tag相同。
-{% endhint %}
-
-### 自定义路由功能示例
+### Ví dụ về chức năng định tuyến tùy chỉnh
 
 ```text
 {

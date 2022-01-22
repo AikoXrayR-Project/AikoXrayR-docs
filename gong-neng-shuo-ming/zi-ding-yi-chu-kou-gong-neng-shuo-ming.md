@@ -1,11 +1,11 @@
-# 自定义出口功能说明
+# Mô tả chức năng xuất tùy chỉnh
 
-XrayR完整支持全部的Xray-core所提供的自定义出口功能，具体启用方式如下：
+XrayR hỗ trợ đầy đủ tất cả các chức năng xuất tùy chỉnh do Xray-core cung cấp. Các phương pháp kích hoạt cụ thể như sau:
 
-1. 编写 custom\_outbound.json文件，此配置与Xray 出口配置完全相同，请查看：[https://xtls.github.io/config/outbound.html](https://xtls.github.io/config/outbound.html)获取帮助。
-2. 在`config.yml`中配置`OutboundConfigPath`为custom\_outbound.json的路径。
+1. Viết tệp \ _outbound.json tùy chỉnh, cấu hình này hoàn toàn giống với cấu hình gửi đi của Xray, vui lòng kiểm tra:[https://xtls.github.io/config/outbound.html](https://xtls.github.io/config/outbound.html)Được trợ giúp.
+2. Định cấu hình `OutboundConfigPath` trong` config.yml` làm đường dẫn của custom \ _outbound.json.
 
-### 自定义出口功能示例
+### Ví dụ về chức năng xuất tùy chỉnh
 
 ```text
 [

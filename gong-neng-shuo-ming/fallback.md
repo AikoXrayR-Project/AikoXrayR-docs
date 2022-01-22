@@ -1,16 +1,16 @@
-# Fallback 功能说明
+# Mô tả chức năng dự phòng
 
-> fallback 为 Xray 提供了高强度的防主动探测性, 并且具有独创的首包回落机制.
+> Dự phòng cung cấp cho Xray khả năng phát hiện chống tích cực cường độ cao và có cơ chế dự phòng gói đầu tiên ban đầu.
 >
-> fallback 也可以将不同类型的流量根据 path 进行分流, 从而实现一个端口, 多种服务共享.
+> Dự phòng cũng có thể phân chia các loại lưu lượng khác nhau theo đường dẫn, để nhận ra một cổng và nhiều dịch vụ chia sẻ.
 >
-> 目前您可以在使用 VLESS 或者 trojan 协议时, 通过配置 fallbacks 来使用回落这一特性, 并且创造出非常丰富的组合玩法.
+> Hiện tại, bạn có thể sử dụng tính năng dự phòng bằng cách định cấu hình các dự phòng khi sử dụng giao thức VLESS hoặc trojan, đồng thời tạo ra sự kết hợp rất phong phú của trò chơi.
 >
 > ---[https://xtls.github.io/config/features/fallback.html](https://xtls.github.io/config/features/fallback.html)
 
-## 启用Fallback功能
+## Bật chức năng Dự phòng
 
-设置`EnableFallback`为`true`，并配置`FallBackConfigs`
+Đặt `EnableFallback` thành` true` và định cấu hình `FallBackConfigs`
 
 ```yaml
 ControllerConfig:
@@ -22,10 +22,9 @@ ControllerConfig:
       Dest: 80 # Required, Destination of fallback, check https://xtls.github.io/config/fallback/ for details.
       ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
 ```
+## Định cấu hình Dự phòng
 
-## 配置Fallback
-
-XrayR遵循Xray设计思路，支持一个节点多个Fallback设置，因此`FallBackConfigs`为一个数组，每个子元素示例如下：
+XrayR tuân theo ý tưởng thiết kế Xray và hỗ trợ nhiều cài đặt Dự phòng cho một nút, vì vậy `FallBackConfigs` là một mảng và ví dụ về mỗi phần tử con như sau:
 
 ```yaml
 -
@@ -35,41 +34,40 @@ XrayR遵循Xray设计思路，支持一个节点多个Fallback设置，因此`Fa
   ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
 ```
 
-### SNI: string
+### SNI: chuỗi
 
-尝试匹配 TLS SNI\(Server Name Indication\)，空为任意，默认为 ""
+Cố gắng khớp TLS SNI \ (Chỉ báo tên máy chủ \), trống là bất kỳ, mặc định là ""
 
-### Path: string
+### Đường dẫn: chuỗi
 
-尝试匹配首包 HTTP PATH，空为任意，默认为空，非空则必须以 "/" 开头，不支持 h2c。
+Cố gắng khớp với HTTP PATH của gói đầu tiên, trống là tùy ý, mặc định là trống, không trống phải bắt đầu bằng "/", h2c không được hỗ trợ.
 
-智能：有需要时，VLESS 才会尝试看一眼 PATH（不超过 55 个字节；最快算法，并不完整解析 HTTP），若成功，输出 info realPath = 到日志。 用途：分流其它 inbound 的 WebSocket 流量或 HTTP 伪装流量，没有多余处理、纯粹转发流量，实测比 Nginx 反代更强。
+Thông minh: VLESS sẽ cố gắng xem xét PATH khi cần thiết (không quá 55 byte; thuật toán nhanh nhất, không phân tích cú pháp hoàn toàn HTTP) và nếu thành công, xuất thông tin realPath = vào nhật ký. Mục đích: Chuyển hướng lưu lượng truy cập WebSocket gửi đến khác hoặc lưu lượng giả mạo HTTP, không xử lý dư thừa, lưu lượng chuyển tiếp thuần túy và phép đo thực tế mạnh hơn thế hệ ngược Nginx.
 
-注意：fallbacks 所在入站本身必须是 TCP+TLS，这是分流至其它 WS 入站用的，被分流的入站则无需配置 TLS。
+Lưu ý: Đầu vào nơi đặt dự phòng phải là TCP + TLS, được sử dụng để giảm tải cho WS gửi đến khác. Không cần định cấu hình TLS cho đầu vào đã được giảm tải.
 
-### Dest: string\|number
+### Dest: string \ | number
 
-决定 TLS 解密后 TCP 流量的去向，目前支持两类地址：（该项必填，否则无法启动）
+Xác định đích của lưu lượng TCP sau khi giải mã TLS. Hiện tại, hai loại địa chỉ được hỗ trợ: (Mục này là bắt buộc, nếu không, không thể khởi động mục này)
 
-1. TCP，格式为 "addr:port"，其中 addr 支持 IPv4、域名、IPv6，若填写域名，也将直接发起 TCP 连接（而不走内置的 DNS）。
-2. Unix domain socket，格式为绝对路径，形如 "/dev/shm/domain.socket"，可在开头加 "@" 代表 abstract，"@@" 则代表带 padding 的 abstract。
+1. TCP, định dạng là "addr: port", trong đó addr hỗ trợ IPv4, tên miền và IPv6. Nếu bạn điền tên miền, kết nối TCP sẽ được khởi tạo trực tiếp (không sử dụng DNS tích hợp).
+2. Unix miền socket, định dạng là một đường dẫn tuyệt đối, chẳng hạn như "/dev/shm/domain.socket", bạn có thể thêm "@" ở đầu để biểu thị trừu tượng và "@@" để biểu thị trừu tượng với đệm.
 
-   若只填 port，数字或字符串均可，形如 80、"80"，通常指向一个明文 http 服务（addr 会被补为 "127.0.0.1"）。
+   Nếu bạn chỉ điền vào cổng, các số hoặc chuỗi có thể được sử dụng, chẳng hạn như 80, "80", thường trỏ đến dịch vụ http bản rõ (addr sẽ được bổ sung bằng "127.0.0.1").
 
-### ProxyProtocolVer: number
+### ProxyProtocolVer: số
 
-发送 PROXY protocol，专用于传递请求的真实来源 IP 和端口，填版本 1 或 2，默认为 0，即不发送。若有需要建议填 1。
+Gửi giao thức PROXY, dành riêng để chuyển IP nguồn thực và cổng của yêu cầu, điền vào phiên bản 1 hoặc 2, mặc định là 0, nghĩa là không được gửi. Điền vào 1 nếu cần thiết.
 
-目前填 1 或 2，功能完全相同，只是结构不同，且前者可打印，后者为二进制。Xray 的 TCP 和 WS 入站均已支持接收 PROXY protocol。
+Hiện tại điền 1 hoặc 2, chức năng hoàn toàn giống nhau, nhưng cấu trúc khác nhau, và cái trước có thể được in ra, cái sau là nhị phân. Cả TCP và WS đầu vào của Xray đều đã hỗ trợ nhận giao thức PROXY.
 
-> TIP
+> MẸO
 >
-> 若你正在 配置 Nginx 接收 PROXY protocol，除了设置 proxy\_protocol 外，还需设置 set\_real\_ip\_from，否则可能会出问题。
+> Nếu bạn đang định cấu hình Nginx để nhận giao thức PROXY, ngoài việc đặt proxy \ _protocol, bạn cũng cần đặt set \ _real \ _ip \ _from, nếu không có thể xảy ra sự cố.
 
-## Fallback 示例
+## Ví dụ về dự phòng
 
-XrayR设置
-
+Cài đặt XrayR
 ```text
 EnableFallback: true
 FallBackConfigs:  # Support multiple fallbacks
@@ -80,7 +78,7 @@ FallBackConfigs:  # Support multiple fallbacks
     ProxyProtocolVer: 0
 ```
 
-Nginx设置
+Cài đặt Nginx
 
 ```text
 server {  
@@ -100,7 +98,7 @@ server {
 }
 ```
 
-## 参考
+## tham khảo
 
 [Xray Fallback](https://xtls.github.io/config/features/fallback.html)
 

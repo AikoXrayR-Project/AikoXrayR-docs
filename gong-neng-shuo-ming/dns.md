@@ -1,13 +1,13 @@
-# 自定义DNS说明
+# Mô tả DNS tùy chỉnh
 
-XrayR支持为不同节点设置不同的DNS策略，具体方法如下：
+XrayR hỗ trợ thiết lập các chính sách DNS khác nhau cho các nút khác nhau. Các phương pháp cụ thể như sau:
 
-1. 编写dns.json文件，此配置与Xray DNS配置完全相同，请查看：[https://xtls.github.io/config/dns.html](https://xtls.github.io/config/dns.html) 获取帮助。
-2. 在`config.yml`中配置`DnsConfigPath`为dns.json的路径。
-3. 在所需要启用自定义DNS的节点中，将`EnableDNS`设为true。如设为false或者不填则是使用本机DNS。
-4. 如果要启用geoip相关配置，请确保`geoip.dat`和`geosite.dat`处于和`config.yml`同一目录。
+1. Viết tệp dns.json, cấu hình này hoàn toàn giống với cấu hình DNS Xray, vui lòng kiểm tra:[https://xtls.github.io/config/dns.html](https://xtls.github.io/config/dns.html) 获取帮助。
+2. Định cấu hình `DnsConfigPath` trong` config.yml` làm đường dẫn của dns.json.
+3. Đặt `EnableDNS` thành true trên nút cần bật DNS tùy chỉnh. Nếu được đặt thành false hoặc không được điền, DNS cục bộ sẽ được sử dụng.
+4. Nếu bạn muốn bật cấu hình liên quan đến geoip, hãy đảm bảo rằng `geoip.dat` và` geosite.dat` nằm trong cùng một thư mục với `config.yml`.
 
-## DNS解锁样例配置
+## Cấu hình mẫu mở khóa DNS
 
 ```javascript
 {
@@ -24,18 +24,18 @@ XrayR支持为不同节点设置不同的DNS策略，具体方法如下：
   }
 ```
 
-## 设置IPV6优先
+## Đặt mức độ ưu tiên IPV6
 
-1. 请先确保主机有ipv6地址，如无，请考虑使用[warp](https://github.com/P3TERX/warp.sh)获取ipv6。
-2. 在所需要设置IPV6优先的节点中，将`EnableDNS`设为true。
-3. 在所需要设置IPV6优先的节点中，将`SendIP`设为`"::"`。
-4. 在所需要设置IPV6优先的节点中，将`DNSType`设为`UseIP`。
+1. Vui lòng đảm bảo máy chủ lưu trữ có địa chỉ ipv6 trước, nếu không, vui lòng xem xét sử dụng[warp](https://github.com/P3TERX/warp.sh)lấy ipv6。
+2. Đặt `EnableDNS` thành true trên nút cần đặt mức ưu tiên IPV6.
+3. Đặt `SendIP` thành` "::" `trên nút cần đặt ưu tiên IPV6.
+4. Đặt `DNSType` thành` UseIP` trong nút cần đặt mức ưu tiên IPV6.
 
-至此，XrayR将会优先使用目标网站的ipv6地址进行访问，不会影响默认ipv4站点的访问。~~可以用于解锁Netflix等需求~~
+Cho đến nay, XrayR sẽ ưu tiên sử dụng địa chỉ ipv6 của trang web đích để truy cập, điều này sẽ không ảnh hưởng đến quyền truy cập của trang ipv4 mặc định. ~~ Có thể được sử dụng để bỏ chặn Netflix và các nhu cầu khác ~~
 
-## 设置IPV4优先
+## Đặt mức độ ưu tiên IPV4
 
-1. 在所需要设置IPV4优先的节点中，将`EnableDNS`设为true。
-2. 在所需要设置IPV4优先的节点中，将`SendIP`设为`"0.0.0.0"`。
-3. 在所需要设置IPV4优先的节点中，将`DNSType`设为`UseIP`。
+1. Đặt `EnableDNS` thành true trên nút cần đặt ưu tiên IPV4.
+2. Đặt `SendIP` thành` "0.0.0.0" `trong nút cần đặt mức ưu tiên IPV4.
+3. Đặt `DNSType` thành` UseIP` trên nút cần đặt mức ưu tiên IPV4.
 
