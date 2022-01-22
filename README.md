@@ -13,9 +13,9 @@ Một khung công tác back-end dựa trên Xray, hỗ trợ các giao thức V2
 
 ## thư mục dự án
 
-* [XrayR](https://github.com/XrayR-project/XrayR)：Mã nguồn XrayR và phân phối phần mềm.
-* [XrayR-release](https://github.com/XrayR-project/XrayR-release)：Tập lệnh cài đặt một cú nhấp chuột của XrayR cùng với Docker.
-* [XrayR-doc](https://github.com/XrayR-project/XrayR-doc)：Mã nguồn tài liệu XrayR.
+* [XrayR](https://github.com/herotbty/XrayR)：Mã nguồn XrayR và phân phối phần mềm.
+* [XrayR-release](https://github.com/herotbty/XrayR-release)：Tập lệnh cài đặt một cú nhấp chuột của XrayR cùng với Docker.
+* [XrayR-doc](https://github.com/herotbty/XrayR-doc)：Mã nguồn tài liệu XrayR.
 
 ## Đặc trưng
 
