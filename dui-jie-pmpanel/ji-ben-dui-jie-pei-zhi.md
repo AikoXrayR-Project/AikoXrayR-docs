@@ -1,7 +1,7 @@
-# 基本对接配置
+# Cấu hình đế cắm cơ bản
 
-1. 在`config.yml`中配置`PanelType: "PMpanel"`。
-2. PMpanel的详细配置请查看：[PMpanel](https://github.com/ByteInternetHK/PMPanel)
+1. Định cấu hình `PanelType:" PMpanel "` trong `config.yml`.
+2. Để biết cấu hình chi tiết của PMpanel, vui lòng kiểm tra:[PMpanel](https://github.com/ByteInternetHK/PMPanel)
 
 
 
