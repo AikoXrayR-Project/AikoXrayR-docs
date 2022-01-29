@@ -1,8 +1,6 @@
-# 基本对接配置
+# Cấu hình khớp nối cơ bản
 
-
-
-1. 在`config.yml`中配置`PanelType: "Proxypanel"`。
-2. 暂不支持Proxypanel的Shadowsocks\(R\)功能。
-3. 目前只支持Proxypanel审计规则中的reject功能，不支持白名单模式。
+1. 在'config.yml'Vị trí trung bình'PanelType: "Proxypanel"'。
+2. Tạm thời không hỗ trợ Proxypanel 的Shadowsocks(R)tính năng.
+3. Hiện tại chỉ hỗ trợ chức năng reject trong quy tắc kiểm toán Proxypanel và mô hình danh sách trắng không được hỗ trợ.
 

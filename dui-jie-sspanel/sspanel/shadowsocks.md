@@ -1,22 +1,22 @@
-# 对接Shadowsocks
+# Kết nối Shadowsocks
 
-| 协议 | 支持情况 | 加密方法 |
+| thỏa thuận | Hỗ trợ | Phương pháp mã hóa |
 | :--- | :--- | :--- |
 | ShadowsocksAEAD | √ | aes-128-gcm, aes-256-gcm, chacha20-ietf-poly1305 |
 
-## SSpanel-uim 节点地址格式
+## SSpanel-uim nút địa chỉ định dạng
 
-* 请注意，节点类型请选择：`Shadowsocks`
-* 单端口多用户承载用户加密方式请选择：`aes-128-gcm`, `aes-256-gcm`, `chacha20-ietf-poly1305`三者之一。
-* XrayR目前只支持一个单端口多用户承载用户，有多个承载用户时只使用第一个。
-
-  ```text
-  域名或IP;port=监听端口#连接端口;server=xx
-  ```
-
-## Shadowsocks 示例
+* Lưu ý rằng loại nút chọn: 'Shadowsocks'
+* Một cổng đa người dùng lưu trữ mã hóa người dùng chọn: 'aes-128-gcm', 'aes-256-gcm', 'chacha20-ietf-poly1305'.
+* XrayR hiện chỉ hỗ trợ một cổng duy nhất nhiều người dùng lưu trữ người dùng, nhiều hơn một người dùng lưu trữ chỉ sử dụng đầu tiên.
 
 ```text
-示例：gz.aaa.com;port=80#1234;server=gz.aaa.com
+  Tên miền hoặc IP; port= Cổng nghe #Cổng kết nối; server=xx
+  ```
+
+## Shadowsocks ví dụ
+
+```text
+Ví dụ: gz.aaa.com; port=80#1234; server=gz.aaa.com
 ```
 

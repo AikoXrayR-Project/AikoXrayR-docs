@@ -1,4 +1,4 @@
-# 对接Shadowsocks - V2Ray-Plugin
+# Kết nối Shadowsocks - V2Ray-Plugin
 
 <table>
   <thead>
@@ -20,101 +20,100 @@
   </tbody>
 </table>
 
-## SSpanel-uim 节点地址格式
+## SSpanel-uim nút địa chỉ định dạng
 
 ```text
-IP;监听端口;;(ws或obfs);(tls或不填);path=/xxx|host=xxxx.com|server=xxx.com|outside_port=xxx
+IP; Cổng nghe; ;(ws hoặc obfs) ;(tls hoặc không điền); path=/xxx|host=xxxx.com|server=xxx.com|outside_port=xxx
 ```
 
-注意监听端口后面有两个分号
+Lưu ý rằng có hai dấu chấm phẩy đằng sau cổng nghe
 
-## SSpanel-uim 代码修改
+## SSpanel-uim mã sửa đổi
 
-SSpanel-uim关于Shadowsocks - V2Ray-Plugin的代码存在部分问题，需要加以修改才能正确下发订阅。
+Mã của SSpanel-uim về Shadowsocks - V2Ray-Plugin có một số vấn đề cần được sửa đổi để đăng ký chính xác.
 
-此方法写于 [SSPanel-Uim@822d3c](https://github.com/Anankke/SSPanel-Uim/commit/822d3cbcb3ad8f7e11874a96f05d73e5b016c164)，不保证后续仍然生效。
+Phương pháp này được viết trong [SSPanel-Uim@822d3c] (https://github.com/Anankke/SSPanel-Uim/commit/822d3cbcb3ad8f7e11874a96f05d73e5b016c164) và không đảm bảo rằng tiếp theo vẫn có hiệu lực。
 
-### 修改方法
+### Sửa đổi phương pháp
 
-打开src\Models\Node.php文件，找到第420行，将其注释。
+Mở tệp .php srcModelsNode, tìm dòng 420 và chú thích nó.
 
-修改前：
+Trước khi sửa đổi:
 
 ```text
 $return_array['path'] = ($return_array['path'] . '?redirect=' . $user->getMuMd5());
 ```
 
-修改后：
+Sau khi sửa đổi:
 
 ```text
-// $return_array['path'] = ($return_array['path'] . '?redirect=' . $user->getMuMd5());
+$return_array['path'] = ($return_array['path'] . '?redirect=' . $user->getMuMd5());
 ```
 
-## SSpanel-uim 订阅
+## SSpanel-uim đăng ký
 
-SSpanel-uim建议安卓，WIN和Mac使用Clash，IOS使用Shadowrocket获取含有Shadowsocks - V2Ray-Plugin的订阅。
+SSpanel-uim khuyến nghị Android, WIN và Mac sử dụngClash, IOS sử dụng Shadowrocket để có được đăng ký có chứa Shadowsocks - V2Ray-Plugin.
 
-## ws + tls \(Nginx\) 示例（**推荐**）
+## ws + tls (Nginx) ví dụ (**khuyến nghị**)
 
-交由Caddy或者Nginx处理TLS 节点配置和 ws+tls一致，在后端配置`CertMode: none`
+Cấu hình nút TLS xử lý Caddy hoặc Nginx phù hợp với ws +tls, cấu hình 'CertMode: none' ở back-end
 
-同时设置outside\_port为Nginx监听端口，转发到12345为XrayR监听端口。可以在后端配置`ListenIP: 127.0.0.1`监听本地端口。
+Đồng thời thiết lập outside_port là cổng nghe Ngnx, chuyển tiếp đến 12345 cho cổng nghe XrayR. Bạn có thể cấu hình 'ListenIP: 127.0.0.1' để nghe cổng cục bộ.
 
 ```text
-ip;12345;;ws;tls;path=/xxx|server=域名|host=CDN域名|outside_port=443
+ip; 12345;; ws; tls; path=/xxx|server=tên miền|host=CDN|outside_port =443
 ```
 
 ```text
-示例：1.3.5.7;12345;;ws;tls;path=/ss|server=hk.domain.com|host=hk.domain.com|outside_port=443
+Ví dụ: 1.3.5.7; 12345;; ws; tls; path=/ss|server=hk.domain.com|host=hk.domain.com|outside_port=443
 ```
 
-## ws+tls示例
+## ws+tls Ví dụ
 
 ```text
 ip;12345;;ws;tls;path=/xxx|host=xxxx.com|server=xxx.com
 ```
 
 ```text
-示例：1.3.5.7;12345;;ws;tls;path=/ss|host=hk.domain.com|server=hk.domain.com
+Ví dụ：1.3.5.7;12345;;ws;tls;path=/ss|host=hk.domain.com|server=hk.domain.com
 ```
 
-## ws示例
+## ws Ví dụ
 
 ```text
 ip;12345;;ws;;path=/xxx|host=xxxx.com|server=xxx.com
 ```
 
 ```text
-示例：1.3.5.7;12345;;ws;;path=/ss|host=hk.domain.com|server=hk.domain.com
+Ví dụ：1.3.5.7;12345;;ws;;path=/ss|host=hk.domain.com|server=hk.domain.com
 ```
 
-## simple\_obfs\_http示例
+## simple\_obfs\_http Ví dụ
 
 ```text
 ip;12345;;obfs;http;server=xxx.com
 ```
 
 ```text
-示例：1.3.5.7;12345;;obfs;http;server=hk.domain.com
+Ví dụ：1.3.5.7;12345;;obfs;http;server=hk.domain.com
 ```
 
-## simple\_obfs\_tls示例
-
+## simple\_obfs\_tls Ví dụ 
 ```text
 ip;12345;;obfs;tls;server=xxx.com
 ```
 
 ```text
-示例：1.3.5.7;12345;;obfs;tls;server=hk.domain.com
+Ví dụ：1.3.5.7;12345;;obfs;tls;server=hk.domain.com
 ```
 
-## 中转端口
+## Cổng quá cảnh
 
-在任一配置组合后增加`|outside_port=xxx`,此项为用户连接端口。
+Thêm '|outside_port = xxx' sau khi bất kỳ kết hợp cấu hình nào được thêm vào, một cổng kết nối cho người dùng.
 
-XrayR没有`inside_port=xx`配置选项，如需监听本地端口，请在配置文件中设置监听ip为`127.0.0.1`。
+XrayR không có tùy chọn cấu hình 'inside_port =xx', và để nghe cổng cục bộ, hãy đặt ip nghe trong hồ sơ là '127.0.0.1'.
 
 ```text
-示例：1.3.5.7;12345;;ws;tls;path=/ss|server=hk.domain.com|host=hk.domain.com|outside_port=8888
+Ví dụ: 1.3.5.7; 12345;; ws; tls; path=/ss|server=hk.domain.com|host=hk.domain.com|outside_port=8888
 ```
 

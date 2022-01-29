@@ -1,26 +1,26 @@
-# 对接新版SSPanel Custom Config
+# Kết nối với phiên bản mới SSPanel Custom Config
 
-对于sspanel >= 2021.11的版本中自动启用Custom_config的配置方法，请查看以下配置，正确配置结点信息。关于订阅相关信息，请查看SSPanel相关文档：https://wiki.sspanel.org/#/universal-subscription。
-如果不想使用custom config，请在`ApiConfig`中将`DisableCustomConfig`设为`true`。
+Đối với phương pháp cấu hình tự động kích hoạt Custom_config trong phiên bản sspanel > = 2021.11, hãy xem cấu hình sau để cấu hình thông tin nút chính xác. Để biết thông tin về đăng ký, hãy xem tài liệu liên quan đến SSPanel: https://wiki.sspanel.org/#/universal-subscription.
+Nếu bạn không muốn sử dụngcustom config, hãy đặt 'DisableCustomConfig' thành 'true', trong 'ApiConfig'.
 
 # Shadowsocks
 ```json
 {
-	"offset_port_user": "12345", //前端/订阅中下发的端口
-    "offset_port_node": "12345", //节点服务器下发的端口
-    "server_user": "hk.domain.com", //前端/订阅中下发的服务器地址
-    "mu_encryption": "chacha20-ietf-poly1305", // `aes-128-gcm`, `aes-256-gcm`, `chacha20-ietf-poly1305`三者之一
+	"offset_port_user": "12345", cổng được phát hành trong //front-end/đăng ký
+    "offset_port_node": "12345", //cổng được phát hành bởi máy chủ nút
+    "server_user": "hk.domain.com", //front-end/đăng ký trong địa chỉ máy chủ được phát hành
+    "mu_encryption": "chacha20-ietf-poly1305", // 'aes-128-gcm', 'aes-256-gcm', 'chacha20-ietf-poly1305'
 }
 
 ```
 
 # V2ray
 
-alterId设为0，则自动启用VMessAEAD。
+AlterId được đặt thành 0 và VMessAEAD sẽ được kích hoạt tự động.
 
-{% hint style="info" %} 注意：VMESS AEAD 将在 2022 年 1 月 1 日强制启用 请注意更新服务端配置，设置alterId = 0 {% endhint %}
+{% hint style="info" %} Lưu ý: VMESS AEAD sẽ bắt buộc bật vào ngày 1 tháng 1 năm 2022 Xin lưu ý cập nhật cấu hình phía dịch vụ, thiết lập alterId = 0 {% endhint %}
 
-## tcp示例
+## tcp Ví dụ
 
 ``` json
 {
@@ -32,7 +32,7 @@ alterId设为0，则自动启用VMessAEAD。
 }
 ```
 
-## tcp+http示例
+## tcp+http Ví dụ
 
 ```json
 {
@@ -54,7 +54,7 @@ alterId设为0，则自动启用VMessAEAD。
 }
 ```
 
-## tcp+tls示例
+## tcp+tls Ví dụ
 
 ```json
 {
@@ -67,7 +67,7 @@ alterId设为0，则自动启用VMessAEAD。
 }
 ```
 
-## ws示例
+## ws Ví dụ
 
 ```json
 {
@@ -81,7 +81,7 @@ alterId设为0，则自动启用VMessAEAD。
 }
 ```
 
-## ws+tls示例
+## ws+tls Ví dụ
 
 ```json
 {
@@ -95,7 +95,7 @@ alterId设为0，则自动启用VMessAEAD。
 }
 ```
 
-## grpc+tls示例
+## grpc+tls Ví dụ
 
 ```json
 {
@@ -109,8 +109,8 @@ alterId设为0，则自动启用VMessAEAD。
 }
 ```
 
-## 中转端口示例
-在任一配置中设置`offset_port_user`为用户连接端口
+## Ví dụ về cổng xoay
+Đặt 'offset_port_user' cho người dùng trong bất kỳ cấu hình nào
 
 ``` json
 {
@@ -123,10 +123,10 @@ alterId设为0，则自动启用VMessAEAD。
 }
 ```
 
-此时用户连接端口为8888，结点监听端口为12345
+Tại thời điểm này, cổng kết nối người dùng là 8888 và cổng nghe nút là 12345
 
-## 启用vless
-在任一配置中设置`enable_vless: 1`为用户连接端口
+## Bật vless
+Đặt 'enable_vless: 1' cho người dùng để kết nối cổng trong bất kỳ cấu hình nào
 
 ``` json
 {
@@ -139,10 +139,10 @@ alterId设为0，则自动启用VMessAEAD。
 	"enable_vless": 1
 }
 ```
-请开启vless同时务必使用tls或者xtls。
+Vui lòng bật vless và luôn luôn sử dụng tls hoặc xtls.
 
-## 启用xtls
-在任一配置中设置`security: xtls`。
+## Cho phép xtls
+Thiết lập 'security: xtls'trong bất kỳ cấu hình nào.
 
 ``` json
 {
@@ -158,7 +158,7 @@ alterId设为0，则自动启用VMessAEAD。
 
 # Trojan
 
-## tcp示例
+## tcp Ví dụ
 
 ``` json
 {
@@ -168,7 +168,7 @@ alterId设为0，则自动启用VMessAEAD。
 }
 ```
 
-## grpc示例
+## grpc Ví dụ
 
 ``` json
 {
@@ -180,8 +180,8 @@ alterId设为0，则自动启用VMessAEAD。
 }
 ```
 
-## 中转示例
-在任一配置中设置`offset_port_user`为用户连接端口
+## Ví dụ chuyển tiếp
+Đặt 'offset_port_user' cho người dùng trong bất kỳ cấu hình nào
 ``` json
 {
 	"offset_port_user": 443,
@@ -190,11 +190,11 @@ alterId设为0，则自动启用VMessAEAD。
 	"host": "hk.domain.com"
 }
 ```
-此时用户连接443，结点监听12345
+Tại thời điểm này người dùng kết nối 443, nút lắng nghe 12345
 
-## 启用xtls
+## Cho phép xtls
 
-在任一配置中设置`enable_xtls: 1`。
+Đặt 'enable_xtls: 1' trong bất kỳ cấu hình nào.
 
 ``` json
 {

@@ -1,8 +1,8 @@
-# 基本对接配置
+# Cấu hình khớp nối cơ bản
 
-1. 在`config.yml`中配置`PanelType: "SSpanel"`。
+1. trong 'config.yml'中 cấu'PanelType: "SSpanel"'.
 
-配置文件详见：[配置文件说明](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
+Hồ sơ được nêu chi tiết: [Mô tả hồ sơ] (.. /.. /xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
 
-1. 对于sspanel >= 2021.11的版本中自动启用Custom_config的配置方法，请查看[SSPanel Custom Config](sspanel_custom_config.md)，正确配置结点信息。关于订阅相关信息，请查看SSPanel相关文档：https://wiki.sspanel.org/#/universal-subscription。
-2. 如果不想使用custom config，请在`ApiConfig`中将`DisableCustomConfig`设为`true`。同时参照[shadowsocks](shadowsocks.md),[v2ray](v2ray.md)和[trojan](trojan.md)的配置方法，在sspanel地址栏中配置结点信息。
+1. Đối với phương pháp cấu hình tự động kích hoạt Custom_config trong phiên bản sspanel > = 2021.11, hãy kiểm tra [SSPanel Custom Config] (sspanel_custom_config.md) để cấu hình chính xác thông tin nút. Để biết thông tin về đăng ký, hãy xem tài liệu liên quan đến SSPanel: https://wiki.sspanel.org/#/universal-subscription.
+2. Nếu bạn không muốn sử dụngcustom config, vui lòng đặt 'DisableCustomConfig' thành 'true', trong 'ApiConfig'. Đồng thời cấu hình thông tin nút trong thanh địa chỉ sspanel bằng cách tham khảo các phương pháp cấu hình [shadowsocks] (shadowsocks.md), [v2ray] (v2ray.md) và [trojan] (trojan.md).

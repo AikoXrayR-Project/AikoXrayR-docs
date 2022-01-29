@@ -6,131 +6,129 @@
 | VMessAEAD | tcp, tcp+http, tcp+tls, ws, ws+tls, h2c, h2+tls, grpc, grpc+tls |
 | VLess | tcp, tcp+http, tcp+tls/xtls, ws, ws+tls/xtls, h2c, h2+tls/xtls, grpc, grpc+tls/xtls |
 
-## SSpanel-uim 节点地址格式
+## SSpanel-uim nút địa chỉ định dạng
 
 ```text
-IP;监听端口;alterId;(tcp或ws);(tls或不填);path=/xxx|host=xxxx.com|server=xxx.com|outside_port=xxx
+IP; Cổng nghe; alterId;(tcp hoặcws) ;(tls hoặc không điền); path=/xxx|host=xxxx.com|server=xxx.com|outside_port=xxx
 ```
 
-alterId设为0，则自动启用VMessAEAD。
+AlterId được đặt thành 0 và VMessAEAD sẽ được kích hoạt tự động.
 
-{% hint style="info" %} 注意：VMESS AEAD 将在 2022 年 1 月 1 日强制启用 请注意更新服务端配置，设置alterId = 0 {% endhint %}
+{% hint style="info" %} Lưu ý: VMESS AEAD sẽ bắt buộc bật vào ngày 1 tháng 1 năm 2022 Xin lưu ý cập nhật cấu hình phía dịch vụ, thiết lập alterId = 0 {% endhint %}
 
-## tcp示例
-
-```text
-ip;12345;0;tcp;;server=域名
-```
+## tcp ví dụ
 
 ```text
-示例：1.3.5.7;12345;0;tcp;;server=hk.domain.com
-```
-
-## tcp+http示例
-
-注意sspanel并不支持此类订阅下发，此选项只供开启后端http混淆。
-
-```text
-ip;12345;0;tcp;;server=域名;headertype=http
+ip; 12345;0; tcp;; server=tên miền
 ```
 
 ```text
-示例：1.3.5.7;12345;0;tcp;;server=hk.domain.com;headertype=http
+Ví dụ: 1.3.5.7; 12345;0; tcp;; server=hk.domain.com
 ```
 
-## tcp + tls 示例
+## tcp+http ví dụ
+
+Lưu ý rằng sspanel không hỗ trợ việc phát hành các đăng ký như vậy, tùy chọn này chỉ dành cho sự nhầm lẫn http bật bật.
 
 ```text
-ip;12345;0;tcp;tls;server=域名|host=域名
-```
-
-```text
-示例：1.3.5.7;12345;0;tcp;tls;server=hk.domain.com|host=hk.domain.com
-```
-
-## ws示例
-
-```text
-ip;80;0;ws;;path=/xxx|server=域名|host=CDN域名
+ip; 12345;0; tcp;; server=tên miền; headertype=http
 ```
 
 ```text
-示例：1.3.5.7;80;0;ws;;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+Ví dụ: 1.3.5.7; 12345;0; tcp;; server=hk.domain.com; headertype=http
 ```
 
-## ws + tls 示例
+## tcp + tls Ví dụ
 
 ```text
-ip;443;0;ws;tls;path=/xxx|server=域名|host=CDN域名
+ip;12345;0;tcp;tls; server=tên miền|host=tên miền
 ```
 
 ```text
-示例：1.3.5.7;443;0;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+Ví dụ：1.3.5.7;12345;0;tcp;tls;server=hk.domain.com|host=hk.domain.com
 ```
 
-## ws + tls \(Caddy/Nginx\) 示例
+## ws Ví dụ
 
-交由Caddy或者Nginx处理TLS 节点配置和 ws+tls一致，在后端配置`CertMode: none`
+```text
+ip;80;0;ws;;path=/xxx|server=tên miền|host=CDN tên miền
+```
 
-同时设置outside\_port为Caddy/Nginx监听端口，转发到12345为XrayR监听端口。可以在后端配置`ListenIP: 127.0.0.1`监听本地端口。
+```text
+Ví dụ：1.3.5.7;80;0;ws;;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+```
+
+## ws + tls Ví dụ
+
+```text
+ip;443;0;ws;tls;path=/xxx|server=tên miền|host=CDN tên miền
+```
+
+```text
+Ví dụ：1.3.5.7;443;0;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+```
+
+## ws + tls (Caddy/Nginx) ví dụ
+
+Cấu hình nút TLS xử lý Caddy hoặc Nginx phù hợp với ws +tls, cấu hình 'CertMode: none' ở back-end
+
+Đồng thời thiết lập outside_port là cổng nghe Caddy/Nginx, chuyển tiếp đến 12345 cho cổng nghe XrayR. Bạn có thể cấu hình 'ListenIP: 127.0.0.1' để nghe cổng cục bộ.
 
 ```text
 ip;12345;0;tls;ws;path=/xxx|server=域名|host=CDN域名|outside_port=443
 ```
 
 ```text
-示例：1.3.5.7;12345;0;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com示例：1.3.5.7;12345;2;ws;tls;path=/v2ray|server=hk.domain.com|host=hk.domain.com
+Ví dụ: 1. 3。 5。 7; 12345;0; Wise; Turs; Parth =/v2ray| Sever = Huck. Doman. Comm| Horst Huck. Doman. Ví dụ com: 1. 3。 5。 7; 12345; 2; Wise; Turs; Parth =/vi2 thuận| Sever = Huck. Doman. Comm| Horst Huck. Doman. Comm
 ```
 
-## grpc+tls示例
+## grpc+tls ví dụ
 
-使用grpc建议升级sspanel至[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)
+Sử dụng grpc khuyến nghị nâng cấp sspanel đến [Anankke/SSPanel-Uim@8f68b63] (https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)
 
 ```text
-ip;12345;0;grpc;tls;host=域名|server=域名|servicename=域名
+ip; 12345;0; grpc; tls; host=tên miền|server=tên miền|servicename=tên miền
 ```
 
 ```text
-示例：1.3.5.7;12345;0;grpc;tls;host=hk.domain.com|server=hk.domain.com|servicename=hk.domain.com
+Ví dụ: 1.3.5.7; 12345;0; grpc; tls; host=hk.domain.com|server=hk.domain.com|servicename=hk.domain.com
 ```
 
-## 中转端口
+## Cổng quá cảnh
 
-在任一配置组\|合后增加`|outside_port=xxx`,此项为用户连接端口。
+Thêm '|outside_port = xxx' sau khi bất kỳ nhóm cấu hình  | hợp nào, một cổng kết nối người dùng.
 
-XrayR没有`inside_port=xx`配置选项，如需监听本地端口，请在配置文件中设置监听ip为`127.0.0.1`。
+XrayR không có tùy chọn cấu hình 'inside_port =xx', và để nghe cổng cục bộ, hãy đặt ip nghe trong hồ sơ là '127.0.0.1'.
 
 ```text
-示例：1.3.5.7;80;0;ws;;path=/v2ray|server=hk.domain.com|host=hk.domain.com|outside_port=12345
+Ví dụ: 1.3.5.7; 80;0; ws;; path=/v2ray|server=hk.domain.com|host=hk.domain.com|outside_port=12345
 ```
 
-## 启用Vless
+## Bật Vless
 
-此项为实验性功能，请确保您使用的面板已经支持下发vless订阅，否则请手动配置客户端。
+Đây là một tính năng thử nghiệm, đảm bảo rằng bảng điều khiển bạn đang sử dụng đã hỗ trợ đăng ký vless, nếu không cấu hình máy khách theo cách thủ công. 
+sspanel nâng cấp lên phiên bản này [Anankke/SSPanel-Uim@8f68b63] (https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107) hỗ trợ đăng ký vless
 
-sspanel升级到此版本[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)后支持vless订阅下发
-
-在任意协议配置后增加`enable_vless=true`
+Thêm 'enable_vless = true sau khi cấu hình giao thức tùy ý`
 
 ```text
-示例：hk.domain.com;12345;0;tcp;(tls或xtls);server=hk.domain.com|enable_vless=true
+Ví dụ: hk.domain.com; 12345;0; tcp;(tls hoặc xtls); server=hk.domain.com|enable_vless=true
 ```
 
-同时在本地设置文件将`EnableVless`设为true。 配置文件详见：[配置文件说明](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
+Đồng thời thiết lập các tập tin tại địa phương đặt 'EnableVless' như true. Hồ sơ được nêu chi tiết: [Mô tả hồ sơ] (.. /.. /xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
 
-请开启vless同时务必使用tls或者xtls。
+Vui lòng bật vless và luôn luôn sử dụng tls hoặc xtls.
 
-## 启用xtls
+## Cho phép xtls
 
-此项为实验性功能，请确保您使用的面板已经支持下发带有xtls的订阅，否则请手动配置客户端。
+Đây là một tính năng thử nghiệm, đảm bảo rằng bảng điều khiển bạn đang sử dụng đã hỗ trợ đăng ký với xtls, nếu không cấu hình máy khách theo cách thủ công. 
+sspanel nâng cấp lên phiên bản này [Anankke/SSPanel-Uim@8f68b63] (https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107) hỗ trợ đăng ký xtls
 
-sspanel升级到此版本[Anankke/SSPanel-Uim@8f68b63](https://github.com/Anankke/SSPanel-Uim/commit/8f68b6360baf9f6624e1158e3cae81d93d1db107)后支持xtls订阅下发
-
-将任意协议配置中的`tls`替换成`xtls`，如果xtls有流控flow，则在最后增加: `|flow=flow-vlaue`
+Thay thế 'tls' trong bất kỳ cấu hình giao thức nào bằng 'xtls', nếu xtls có flow điều khiển luồng, nó sẽ được thêm vào cuối: '|flow = flow-vlaue'
 
 ```text
-示例：hk.domain.com;443;0;tcp;xtls;server=hk.domain.com|host=hk.domain.com|enable_vless=true|flow=xtls-rprx-direct
+Ví dụ: hk.domain.com; 443;0; tcp; xtls; server=hk.domain.com|host=hk.domain.com|enable_vless=true|flow=xtls-rprx-direct
 ```
 
-同时在本地设置文件将`EnableXTLS`设为true。 配置文件详见：[配置文件说明](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
+Các tập tin được thiết lập tại địa phương đặt 'EnableXTLS' thành true. Hồ sơ được nêu chi tiết: [Mô tả hồ sơ] (.. /.. /xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
 
