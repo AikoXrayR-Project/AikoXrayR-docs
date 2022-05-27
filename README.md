@@ -13,8 +13,8 @@ Một khung công tác back-end dựa trên Xray, hỗ trợ các giao thức V2
 
 ## thư mục dự án
 
-* [XrayR](https://github.com/AikoXrayR-Project/XrayR)：Mã nguồn XrayR và phân phối phần mềm.
-* [XrayR-release](https://github.com/AikoXrayR-Project/XrayR-release)：Tập lệnh cài đặt một cú nhấp chuột của XrayR cùng với Docker.
+* [AikoXrayR](https://github.com/AikoXrayR-Project/XrayR)：Mã nguồn XrayR và phân phối phần mềm.
+* [AikoXrayR-install](https://github.com/AikoXrayR-Project/AikoXrayR-install)：Tập lệnh cài đặt một cú nhấp chuột của XrayR cùng với Docker.
 * [XrayR-doc](https://github.com/AikoXrayR-Project/XrayR-doc)：Mã nguồn tài liệu XrayR.
 
 ## Đặc trưng
