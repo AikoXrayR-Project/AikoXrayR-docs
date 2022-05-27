@@ -4,10 +4,10 @@
 
 ## Tải xuống và cài đặt XrayR
 
-* [Tải xuống và cài đặt](xrayr-xia-zai-he-an-zhuang/install/README.md)
-  * [Cài đặt bằng tập lệnh một cú nhấp chuột](xrayr-xia-zai-he-an-zhuang/install/one-click.md)
-  * [Cài đặt bằng docker](xrayr-xia-zai-he-an-zhuang/install/docker.md)
-  * [Hướng dẫn cài đặt](xrayr-xia-zai-he-an-zhuang/install/manual.md)
+* [Tải xuống và cài đặt](download-and-install-AikoXrayR/install/README.md)
+  * [Cài đặt bằng tập lệnh một cú nhấp chuột](download-and-install-AikoXrayR/install/one-click.md)
+  * [Cài đặt bằng docker](download-and-install-AikoXrayR/install/docker.md)
+  * [Hướng dẫn cài đặt](download-and-install-AikoXrayR/install/manual.md)
 
 ## Mô tả cấu hình XrayR
 
