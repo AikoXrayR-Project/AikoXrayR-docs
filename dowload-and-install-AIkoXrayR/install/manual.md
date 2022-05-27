@@ -18,5 +18,5 @@
    ./XrayR -config config.yml
    ```
 
-Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
+Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../../config-AikoXrayR/config.md)
 

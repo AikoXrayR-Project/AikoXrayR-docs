@@ -11,16 +11,16 @@
 
 ## Mô tả cấu hình XrayR
 
-* [Mô tả tệp cấu hình](xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
+* [Mô tả tệp cấu hình](config-AikoXrayR/config.md)
 
 ## Gắn kết với SSpanel
 
-* [Cấu hình đế cắm cơ bản](dui-jie-sspanel/sspanel/README.md)
-  * [Kết nối với phiên bản mới của Cấu hình tùy chỉnh SSPanel](dui-jie-sspanel/sspanel/sspanel_custom_config.md)
-  * [Gắn kết với V2ray](dui-jie-sspanel/sspanel/v2ray.md)
-  * [Docking Trojan](dui-jie-sspanel/sspanel/trojan.md)
-  * [Docking Shadowsocks](dui-jie-sspanel/sspanel/shadowsocks.md)
-  * [Docking Shadowsocks - V2Ray-Plugin](dui-jie-sspanel/sspanel/dui-jie-shadowsocks-v2rayplugin.md)
+* [Cấu hình đế cắm cơ bản](SSpanel-configuration/sspanel/README.md)
+  * [Kết nối với phiên bản mới của Cấu hình tùy chỉnh SSPanel](SSpanel-configuration/sspanel/sspanel_custom_config.md)
+  * [Gắn kết với V2ray](SSpanel-configuration/sspanel/v2ray.md)
+  * [Cấu hình Trojan](SSpanel-configuration/sspanel/trojan.md)
+  * [Cấu Hình Shadowsocks](SSpanel-configuration/sspanel/shadowsocks.md)
+  * [Cấu Hình Shadowsocks - V2Ray-Plugin](SSpanel-configuration/sspanel/configuration-shadowsocks-v2rayplugin.md)
 
 ## Gắn kết với V2board
 

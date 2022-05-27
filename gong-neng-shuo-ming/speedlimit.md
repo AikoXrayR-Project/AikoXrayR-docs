@@ -12,5 +12,5 @@
 Giới hạn tốc độ nút: Tất cả các giá trị giới hạn tốc độ của người dùng được kết nối với nút này sẽ sử dụng giá trị được đặt trong `SpeedLimit` ** (không phải giới hạn tốc độ cổng) **
 {% endhint%}
 
-Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
+Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../config-AikoXrayR/config.md#mian-ban-dui-jie-pei-zhi)
 

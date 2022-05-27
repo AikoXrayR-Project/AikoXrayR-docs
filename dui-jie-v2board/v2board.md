@@ -4,7 +4,7 @@
 2. V2board chỉ hỗ trợ các quy tắc kiểm tra cho các loại nút V2ray.
 3. Kích hoạt vless và xtls, vui lòng khởi động thủ công trong tệp cấu hình, V2board không hỗ trợ cấu hình trực tuyến.
 
-Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
+Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../config-AikoXrayR/config.md)
 
 ### Gắn kết vmess + grpc
 

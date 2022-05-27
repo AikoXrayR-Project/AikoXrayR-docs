@@ -46,7 +46,7 @@ chmod +x /usr/local/bin/docker-compose
 
 1. `git clone https://github.com/XrayR-project/XrayR-release`
 2. `cd XrayR-release`
-3. Chỉnh sửa tệp cấu hình：`config.yml`，xem chi tiết：[Mô tả tệp cấu hình](../../xrayr-pei-zhi-wen-jian-shuo-ming/config.md)
+3. Chỉnh sửa tệp cấu hình：`config.yml`，xem chi tiết：[Mô tả tệp cấu hình](../../config-AikoXrayR/config.md)
 4. Chạy docker：`docker-compose up -d`
 
 ## Docker run Cài đặt XrayR
