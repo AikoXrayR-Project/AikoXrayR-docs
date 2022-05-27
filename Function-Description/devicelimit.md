@@ -4,7 +4,7 @@ Vì một số lượng lớn bảng không còn hỗ trợ đặc điểm kỹ 
 
 Để bật tính năng này, hãy đặt `DeviceLimit` thành giá trị khác 0 trong tệp cấu hình. Lưu ý rằng cài đặt này sẽ ghi đè giới hạn về số lượng thiết bị người dùng có được từ xa.
 
-Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../config-AikoXrayR/config.md#mian-ban-dui-jie-pei-zhi)
+Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../config-AikoXrayR/config.md#Panel-stacking-configuration)
 
 ## 全局设备限制
 

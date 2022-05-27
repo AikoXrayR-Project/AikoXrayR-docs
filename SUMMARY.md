@@ -24,26 +24,26 @@
 
 ## Gắn kết với V2board
 
-* [Cấu hình đế cắm cơ bản](dui-jie-v2board/v2board.md)
+* [Cấu hình đế cắm cơ bản](v2board-configuration/v2board.md)
 
 ## Gắn kết với PMPanel
 
-* [Cấu hình đế cắm cơ bản](dui-jie-pmpanel/ji-ben-dui-jie-pei-zhi.md)
+* [Cấu hình đế cắm cơ bản](PMpanel-configuration/Basic-docking-configuration.md)
 
 ## Gắn kết với ProxyPanel
 
-* [Cấu hình đế cắm cơ bản](dui-jie-proxypanel/ji-ben-dui-jie-pei-zhi.md)
+* [Cấu hình đế cắm cơ bản](ProxyPanel-configuration/Basic-docking-configuration.md)
 
 ## Mô tả chức năng
 
-* [Mô tả chức năng giới hạn tốc độ](gong-neng-shuo-ming/speedlimit.md)
-* [Mô tả chức năng hạn chế kết nối thiết bị](gong-neng-shuo-ming/devicelimit.md)
-* [Mô tả DNS tùy chỉnh](gong-neng-shuo-ming/dns.md)
-* [Mô tả chức năng định tuyến tùy chỉnh](gong-neng-shuo-ming/zi-ding-yi-lu-you-gong-neng-shuo-ming.md)
-* [Mô tả chức năng xuất tùy chỉnh](gong-neng-shuo-ming/zi-ding-yi-chu-kou-gong-neng-shuo-ming.md)
-* [Mô tả chức năng kiểm tra](gong-neng-shuo-ming/rule.md)
-* [Hướng dẫn đăng ký chứng chỉ tự động](gong-neng-shuo-ming/cert.md)
-* [Mô tả chức năng dự phòng](gong-neng-shuo-ming/fallback.md)
+* [Mô tả chức năng giới hạn tốc độ](Function-Description/speedlimit.md)
+* [Mô tả chức năng hạn chế kết nối thiết bị](Function-Description/devicelimit.md)
+* [Mô tả DNS tùy chỉnh](Function-Description/dns.md)
+* [Mô tả chức năng định tuyến tùy chỉnh](Function-Description/Custom-I-Routing-Function-Description.md)
+* [Mô tả chức năng xuất tùy chỉnh](Function-Description/Custom-export-function-description.md)
+* [Mô tả chức năng kiểm tra](Function-Description/rule.md)
+* [Hướng dẫn đăng ký chứng chỉ tự động](Function-Description/cert.md)
+* [Mô tả chức năng dự phòng](Function-Description/fallback.md)
 
 ## Điều khoản khác
 

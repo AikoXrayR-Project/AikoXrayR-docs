@@ -8,7 +8,7 @@
 
 Đối với các bảng không hỗ trợ thiết lập từ xa các quy tắc kiểm tra: chẳng hạn như V2board, bạn có thể đặt đường dẫn tệp quy tắc cục bộ trong tệp cấu hình cục bộ `RuleListPath`. Tệp quy tắc không cần xác định loại tệp, mỗi ** quy tắc thông thường ** có một dòng và nhãn ID quy tắc cục bộ mặc định là -1.
 
-Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../config-AikoXrayR/config.md#mian-ban-dui-jie-pei-zhi)
+Xem tệp cấu hình để biết chi tiết:[Mô tả tệp cấu hình](../config-AikoXrayR/config.md#Panel-stacking-configuration)
 
 **Tệp quy tắc cục bộ mẫu**
 

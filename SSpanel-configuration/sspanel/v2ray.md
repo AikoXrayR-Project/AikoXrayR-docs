@@ -115,7 +115,7 @@ Thêm 'enable_vless = true sau khi cấu hình giao thức tùy ý`
 Ví dụ: hk.domain.com; 12345;0; tcp;(tls hoặc xtls); server=hk.domain.com|enable_vless=true
 ```
 
-Đồng thời thiết lập các tập tin tại địa phương đặt 'EnableVless' như true. Hồ sơ được nêu chi tiết: [Mô tả hồ sơ] (.. /.. /config-AikoXrayR/config.md#mian-ban-dui-jie-pei-zhi)
+Đồng thời thiết lập các tập tin tại địa phương đặt 'EnableVless' như true. Hồ sơ được nêu chi tiết: [Mô tả hồ sơ] (.. /.. /config-AikoXrayR/config.md#Panel-stacking-configuration)
 
 Vui lòng bật vless và luôn luôn sử dụng tls hoặc xtls.
 
@@ -130,5 +130,5 @@ Thay thế 'tls' trong bất kỳ cấu hình giao thức nào bằng 'xtls', n�
 Ví dụ: hk.domain.com; 443;0; tcp; xtls; server=hk.domain.com|host=hk.domain.com|enable_vless=true|flow=xtls-rprx-direct
 ```
 
-Các tập tin được thiết lập tại địa phương đặt 'EnableXTLS' thành true. Hồ sơ được nêu chi tiết: [Mô tả hồ sơ] (.. /.. /config-AikoXrayR/config.md#mian-ban-dui-jie-pei-zhi)
+Các tập tin được thiết lập tại địa phương đặt 'EnableXTLS' thành true. Hồ sơ được nêu chi tiết: [Mô tả hồ sơ] (.. /.. /config-AikoXrayR/config.md#Panel-stacking-configuration)
 
