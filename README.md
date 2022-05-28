@@ -2,9 +2,9 @@
 Mô tả: Một khung phụ trợ Xray có thể dễ dàng hỗ trợ nhiều bảng.
 ---
 
-# Về XrayR
+# Về AikoXrayR
 
-## XrayR
+## AikoXrayR
 
 Một khung phụ trợ Xray có thể dễ dàng hỗ trợ nhiều bảng.
 
@@ -15,11 +15,11 @@ Một khung công tác back-end dựa trên Xray, hỗ trợ các giao thức V2
 
 * [AikoXrayR](https://github.com/AikoXrayR-Project/XrayR)：Mã nguồn XrayR và phân phối phần mềm.
 * [AikoXrayR-install](https://github.com/AikoXrayR-Project/AikoXrayR-install)：Tập lệnh cài đặt một cú nhấp chuột của XrayR cùng với Docker.
-* [XrayR-doc](https://github.com/AikoXrayR-Project/XrayR-doc)：Mã nguồn tài liệu XrayR.
+* [AikoXrayR-doc](https://github.com/AikoXrayR-Project/XrayR-doc)：Mã nguồn tài liệu XrayR.
 
 ## Đặc trưng
 
-* Mã nguồn mở vĩnh viễn và miễn phí.
+* Mã nguồn mở `Tuỳ theo tâm trạng chủ sỡ hữu`
 * Hỗ trợ nhiều giao thức V2ray, Trojan, Shadowsocks.
 * Hỗ trợ các tính năng mới như Vless và XTLS.
 * Hỗ trợ kết nối đơn lẻ với nhiều bảng và nút mà không cần khởi động lại.
