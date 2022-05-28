@@ -44,8 +44,8 @@ chmod +x /usr/local/bin/docker-compose
 
 ## Docker-compose Cài đặt XrayR \(giới thiệu\)
 
-1. `git clone https://github.com/XrayR-project/XrayR-release`
-2. `cd XrayR-release`
+1. `git clone https://github.com/AikoXrayR-project/AikoXrayR-Dockerinstall`
+2. `cd AikoXrayR-Dockerinstall`
 3. Chỉnh sửa tệp cấu hình：`config.yml`，xem chi tiết：[Mô tả tệp cấu hình](../../config-AikoXrayR/config.md)
 4. Chạy docker：`docker-compose up -d`
 
@@ -54,7 +54,7 @@ chmod +x /usr/local/bin/docker-compose
 Hãy cẩn thận chỉ định thư mục `config.yml`.
 
 ```bash
-docker pull crackair/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host crackair/xrayr:latest
+docker pull aikocute/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host aikocute/xrayr:latest
 ```
 
 ## Cập nhật XrayR

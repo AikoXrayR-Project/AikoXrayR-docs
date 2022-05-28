@@ -2,7 +2,7 @@
 
 ## Tải xuống và sử dụng
 
-1. Tại đây, chọn phiên bản phù hợp theo hệ thống của bạn:[Release](https://github.com/XrayR-project/XrayR/releases)
+1. Tại đây, chọn phiên bản phù hợp theo hệ thống của bạn:[Release](https://github.com/AikoXrayR-project/XrayR/releases)
 2. Giải nén kho lưu trữ và chạy:`./XrayR -config config.yml`
 
 ## biên dịch và sử dụng
@@ -11,7 +11,7 @@
 2. chạy tuần tự
 
    ```bash
-   git clone https://github.com/XrayR-project/XrayR
+   git clone https://github.com/AikoXrayR-project/XrayR
    cd XrayR/main
    go mod tidy
    go build -o XrayR -ldflags "-s -w"
