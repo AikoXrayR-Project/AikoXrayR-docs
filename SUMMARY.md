@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Về XrayR](README.md)
+* [Về AikoXrayR](README.md)
 
 ## Tải xuống và cài đặt XrayR
 
