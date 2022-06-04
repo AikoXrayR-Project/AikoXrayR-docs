@@ -47,7 +47,7 @@
 
 ## Điều khoản khác
 
-* [Tối ưu hóa bộ nhớ liên quan](za-xiang/memopt.md)
-* [Tại sao giới thiệu Shadowsocks - V2Ray-Plugin](za-xiang/wei-shen-me-yao-yin-ru-shadowsocks-v2rayplugin.md)
-* [Nginx + Trojan tạm thời đang nhỏ giọt!](za-xiang/nginx+trojan-zan-shi-di-shen.md)
+* [Tối ưu hóa bộ nhớ liên quan](Miscellaneous/memopt.md)
+* [Tại sao giới thiệu Shadowsocks - V2Ray-Plugin](Miscellaneous/Why-introduce-shadow-socks-V2Ray-plugin.md)
+* [Nginx + Trojan tạm thời đang nhỏ giọt!](Miscellaneous/Nginx+Trojan-temporary-god.md)
 
