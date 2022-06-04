@@ -1,4 +1,4 @@
-# Cài đặt bằng tập lệnh một cú nhấp chuột
+# Cài đặt thông qua Release
 
 ## Cài đặt phần mềm
 

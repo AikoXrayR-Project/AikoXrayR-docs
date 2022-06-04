@@ -5,7 +5,7 @@
 ## Tải xuống và cài đặt XrayR
 
 * [Tải xuống và cài đặt](dowload-and-install-AIkoXrayR/install/README.md)
-  * [Cài đặt bằng tập lệnh một cú nhấp chuột](dowload-and-install-AIkoXrayR/install/one-click.md)
+  * [Cài đặt thông qua Release](dowload-and-install-AIkoXrayR/install/one-click.md)
   * [Cài đặt bằng docker](dowload-and-install-AIkoXrayR/install/docker.md)
   * [Hướng dẫn cài đặt](dowload-and-install-AIkoXrayR/install/manual.md)
 

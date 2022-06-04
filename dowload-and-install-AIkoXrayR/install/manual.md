@@ -7,7 +7,7 @@
 
 ## biên dịch và sử dụng
 
-1. go 1.17.2
+1. go 1.18.1
 2. chạy tuần tự
 
    ```bash
