@@ -26,17 +26,17 @@ Sửa đổi tệp cấu hình /etc/nginx/nginx.conf:
 ```text
 stream {
     server {
-        listen              443 ssl;                    # 设置监听端口为443
+        listen              443 ssl;                    # Đặt Port thành 443
 
-        ssl_protocols       TLSv1.2 TLSv1.3;      # 设置使用的SSL协议版本
+        ssl_protocols       TLSv1.2 TLSv1.3;      # Đặt phiên bản giao thức SSL được sử dụng
 
-        ssl_certificate /etc/nginx/ssl/xx.com.pem; # 证书地址
-        ssl_certificate_key /etc/nginx/ssl/xx.com.key; # 秘钥地址
-        ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为
-                                                        # SSL，区域大小为10MB
-        ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
-        proxy_protocol    on; # 开启proxy_protocol获取真实ip
-        proxy_pass        127.0.0.1:1234; # 后端Trojan监听端口
+        ssl_certificate /etc/nginx/ssl/xx.com.pem; # địa chỉ chứng chỉ
+        ssl_certificate_key /etc/nginx/ssl/xx.com.key; # Địa chỉ khóa bí mật
+        ssl_session_cache   shared:SSL:10m;             # Bộ đệm ẩn phiên SSL TCP đã đặt tên cho vùng bộ nhớ được chia sẻ
+                                                        # SSL, kích thước vùng là 10MB
+        ssl_session_timeout 10m;                        # Thời gian chờ của bộ nhớ cache phiên SSL TCP là 10 phút
+        proxy_protocol    on; # Mở proxy_protocol để lấy ip thực
+        proxy_pass        127.0.0.1:1234; # Cổng lắng nghe Trojan phụ trợ
     }
 }
 ```
@@ -53,17 +53,17 @@ events {
 
 stream {
     server {
-        listen              443 ssl;                    # 设置监听端口为443
+        listen              443 ssl;                    # Đặt Port thành 443
 
-        ssl_protocols       TLSv1.2 TLSv1.3;      # 设置使用的SSL协议版本
+        ssl_protocols       TLSv1.2 TLSv1.3;      # Đặt phiên bản giao thức SSL được sử dụng
 
-        ssl_certificate /etc/nginx/ssl/xx.com.pem; # 证书地址
-        ssl_certificate_key /etc/nginx/ssl/xx.com.key; # 秘钥地址
-        ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为
-                                                        # SSL，区域大小为10MB
-        ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
-        proxy_protocol    on; # 开启proxy_protocol获取真实ip
-        proxy_pass        127.0.0.1:1234; # 后端Trojan监听端口
+        ssl_certificate /etc/nginx/ssl/xx.com.pem; # địa chỉ chứng chỉ
+        ssl_certificate_key /etc/nginx/ssl/xx.com.key; # Địa chỉ khóa bí mật
+        ssl_session_cache   shared:SSL:10m;             # Bộ đệm ẩn phiên SSL TCP đã đặt tên cho vùng bộ nhớ được chia sẻ
+                                                        # SSL, kích thước vùng là 10MB
+        ssl_session_timeout 10m;                        # Thời gian chờ của bộ nhớ cache phiên SSL TCP là 10 phút
+        proxy_protocol    on; # Mở proxy_protocol để lấy ip thực
+        proxy_pass        127.0.0.1:1234; # Cổng lắng nghe Trojan phụ trợ
     }
 }
 
@@ -94,11 +94,11 @@ CertMode: none
 ```
 
 {% hint style="info" %}
-注意1：请务必确保CertMode为none，交由Nginx处理tls
+Lưu ý 1: Đảm bảo rằng không có CertMode và để Nginx xử lý tls
 {% endhint %}
 
 {% hint style="info" %}
-注意2：在回落时请确保回落站点是http1.1，nginx如果有一个站点是h2会导致全部站点都变成h2（巨坑）
+Lưu ý 2: Hãy đảm bảo rằng trang web dự phòng là http1.1 khi quay lại. Nếu nginx có trang web là h2, nó sẽ khiến tất cả các trang web trở thành h2 (hố khổng lồ)
 {% endhint %}
 
 ** Toàn bộ ví dụ **
