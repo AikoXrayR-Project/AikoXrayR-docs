@@ -16,7 +16,7 @@
 ## Gắn kết với SSpanel
 
 * [Cấu hình đế cắm cơ bản](SSpanel-configuration/sspanel/README.md)
-  * [Kết nối với phiên bản mới của Cấu hình tùy chỉnh SSPanel](SSpanel-configuration/sspanel/sspanel_custom_config.md)
+  * [Kết nối với phiên bản mới của Cấu hình tùy chỉnh SSPanel](SSpanel-configuration/sspanel/sspanel\_custom\_config.md)
   * [Gắn kết với V2ray](SSpanel-configuration/sspanel/v2ray.md)
   * [Cấu hình Trojan](SSpanel-configuration/sspanel/trojan.md)
   * [Cấu Hình Shadowsocks](SSpanel-configuration/sspanel/shadowsocks.md)
@@ -49,5 +49,4 @@
 
 * [Tối ưu hóa bộ nhớ liên quan](Miscellaneous/memopt.md)
 * [Tại sao giới thiệu Shadowsocks - V2Ray-Plugin](Miscellaneous/Why-introduce-shadow-socks-V2Ray-plugin.md)
-* [Nginx + Trojan tạm thời đang nhỏ giọt!](Miscellaneous/Nginx+Trojan-temporary-god.md)
-
+* [Nginx + Trojan - Sử dụng Nigix Chạy trojan](Miscellaneous/Nginx+Trojan-temporary-god.md)

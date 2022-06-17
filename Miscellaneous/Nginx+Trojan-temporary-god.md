@@ -1,4 +1,8 @@
-# Nginx + Trojan tạm thời nhỏ giọt!
+---
+description: HDSD Trojan Qua Nigix
+---
+
+# Nginx + Trojan - Sử dụng Nigix Chạy trojan
 
 Sử dụng Nginx để xử lý TLS của Trojan, Trojan rơi trở lại. Tôi xin được gọi anh ấy là một vị thần trong lúc này!
 
@@ -6,7 +10,7 @@ Sử dụng Nginx để xử lý TLS của Trojan, Trojan rơi trở lại. Tôi
 
 CentOS：
 
-```text
+```
  yum update
  yum install -y nginx
  yum install nginx-mod-stream
@@ -14,7 +18,7 @@ CentOS：
 
 Ubuntu/Debian:
 
-```text
+```
  apt update
  apt install nginx
 ```
@@ -23,7 +27,7 @@ Ubuntu/Debian:
 
 Sửa đổi tệp cấu hình /etc/nginx/nginx.conf:
 
-```text
+```
 stream {
     server {
         listen              443 ssl;                    # Đặt Port thành 443
@@ -41,11 +45,11 @@ stream {
 }
 ```
 
-Vui lòng thêm mã trên vào dòng giữa ** http ** và ** sự kiện **
+Vui lòng thêm mã trên vào dòng giữa \*\* http \*\* và \*\* sự kiện \*\*
 
-**Tham chiếu tệp cấu hình ** / etc / nginx / nginx.conf:**
+**Tham chiếu tệp cấu hình \*\* / etc / nginx / nginx.conf:**
 
-```text
+```
 events {
     worker_connections 768;
     # multi_accept on;
@@ -78,7 +82,7 @@ http {
 
 **1. Vui lòng định cấu hình chứng chỉ SSL**
 
-**2. proxy \ _pass 127.0.0.1:1234 Cổng lắng nghe Trojan phụ trợ giống như cổng lắng nghe nút giao diện người dùng trên trang web của bạn**
+**2. proxy \ \_pass 127.0.0.1:1234 Cổng lắng nghe Trojan phụ trợ giống như cổng lắng nghe nút giao diện người dùng trên trang web của bạn**
 
 **3. Có thể sửa đổi cổng nghe theo ý muốn từ 1-65535, đây là cổng kết nối máy khách**
 
@@ -86,7 +90,7 @@ http {
 
 **cấu hình chính：**
 
-```text
+```
 ListenIP: 127.0.0.1
 EnableProxyProtocol: true
 EnableFallback: true
@@ -101,9 +105,9 @@ Lưu ý 1: Đảm bảo rằng không có CertMode và để Nginx xử lý tls
 Lưu ý 2: Hãy đảm bảo rằng trang web dự phòng là http1.1 khi quay lại. Nếu nginx có trang web là h2, nó sẽ khiến tất cả các trang web trở thành h2 (hố khổng lồ)
 {% endhint %}
 
-** Toàn bộ ví dụ **
+\*\* Toàn bộ ví dụ \*\*
 
-```text
+```
   -
     PanelType: "SSpanel" # Panel type: SSpanel, V2board, PMpanel
     ApiConfig:
@@ -145,13 +149,12 @@ Lưu ý 2: Hãy đảm bảo rằng trang web dự phòng là http1.1 khi quay l
 
 ## Khởi động lại và kiểm tra Nginx và XrayR
 
-```text
+```
 systemctl restart nginx
 XrayR restart
 ```
 
-```text
+```
 systemctl status nginx
 XrayR status
 ```
-
